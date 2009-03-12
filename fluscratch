@@ -1,0 +1,210 @@
+<lookupfield="CODE"
+
+1
+value="AUZ" label="Active Use Zone" 
+"51,51,0"                                                   "51,51,0"
+333300
+
+2
+value="COMM" label="Commercial"
+"254,126,126"                                                   "254,126,126"
+fe7e7e
+
+3
+value="CENC" label="Commercial Enclaves"
+"255,190,190"                                                   "255,190,190"
+ffbebe
+
+4
+value="CONS" label="Conservation"
+"0,198,63"                                                   "0,198,63"
+00c63f
+
+5
+value="CSWMF" label="County Solid Waste Management Facility"
+"114,254,222"                                                   "114,254,222"
+72fede
+
+6
+value="UPLD" label="Exceptional Upland Habitat"
+"115,178,115"                                                   "115,178,115"
+73b273
+
+7
+value="HMK" label="Hammock"
+"140,217,107"                                                   "140,217,107"
+8cd96b
+
+8
+value="IND" label="Heavy Industrial"
+"147,147,147"                                                   "147,147,147"
+939393
+
+9
+value="INDM" label="Industrial/Manufacturing"
+"101,118,204"                                                   "101,118,204"
+6576cc
+
+10
+value="INST" label="Institutional"
+"114,254,222"                                                   "114,254,222"
+72fede
+
+11
+value="INDL" label="Light Industrial"
+"188,188,188"                                                   "188,188,188"
+bcbcbc
+
+12
+value="MU" label="Mixed Use"
+"229,151,0"                                                   "229,151,0"
+db9700
+
+13
+value="MUCOMM" label="Mixed Use Commercial"
+"254,114,177"                                                   "254,114,177"
+fe72b1
+
+14
+value="MUMDR" label="Mixed Use Medium Density Residential"
+"228,190,100"                                                   "228,190,100"
+e4be64
+
+15
+value="OFFICE" label="Office"
+"254,114,254"                                                   "254,114,254"
+fe72fe
+
+16
+value="OFF/BP" label="Office/Business Park"
+"231,189,254"                                                   "231,189,254"
+e7bdfe
+
+17
+value="OFF/M" label="Office/Medical"
+"177,114,254"                                                   "177,114,254"
+b172fe
+
+18
+value="OFF/R" label="Office/Residential"
+"254,189,209"                                                   "254,189,209"
+febdd1
+
+19
+value="OFF/R24" label="Office/Residential (2-4 du/acre)"
+"254,189,254"                                                   "254,189,254"
+febdfe
+
+20
+value="OFF/R48" label="Office/Residential (4-8 du/acre)"
+"209,189,254"                                                   "209,189,254"
+d1bdfe
+
+21
+value="OS" label="Open Space"
+"204,244,121"                                                   "204,244,121"
+ccf479
+
+22
+value="PRES" label="Preservation"
+"121,244,161"                                                   "121,244,161"
+79f4a1
+
+23
+value="RECR" label="Recreation"
+"151,229,0"                                                   "151,229,0"
+97e500
+
+24
+value="ESTATE" label="Residential Estate (0.5 du/acre)"
+"254,254,189"                                                   "254,254,189"
+fefebd
+
+25
+value="HIGH" label="Residential High Density (14-24 du/acre)"
+"254,166,127"                                                   "254,166,127"
+fea67f
+
+26
+value="LOW" label="Residential Low Density (1-4 du/acre)"
+"254,254,114"                                                   "254,254,114"
+fefe72
+
+27
+value="MED" label="Residential Medium Density (4-8 du/acre)"
+"254,233,190"                                                   "254,233,190"
+fee9be
+
+28
+value="MED-HI" label="Residential Medium High Density (8-14 du/acre)"
+"254,210,127"                                                   "254,210,127"
+fed27f
+
+29
+value="RES24" label="Residential Medium Low Density (2-4 du/acre)"
+"254,254,100"                                                   "254,254,100"
+fefe64
+
+30
+value="RES02" label="Residential Very Low Density (0-2 du/acre)"
+"254,210,238"                                                   "254,210,238"
+fed2ee
+
+31
+value="R/AG" label="Rural/Agriculture"
+"194,254,194"                                                   "194,254,194"
+c2fec2
+
+32
+value="RC" label="Rural Cluster"
+"114,254,114"                                                   "114,254,114"
+72fe72
+
+33
+value="RCAG" label="Rural Commercial Agriculture"
+"255,190,190"                                                   "255,190,190"
+ffbebe
+
+34
+value="RCEC" label="Rural Community Employment Center"
+"218,102,0"                                                   "218,102,0"
+da6600
+
+35
+value="REC" label="Rural Employment Center"
+"203,168,102"                                                   "203,168,102"
+cba866
+
+36
+value="SC" label="Shopping Center"
+"254,84,0"                                                   "254,84,0"
+fe5400
+
+37
+value="TENT" label="Tourist/Entertainment"
+"217,115,254"                                                   "217,115,254"
+d973fe
+
+38
+value="UTILITY" label="Utility"
+"167,167,0"                                                   "167,167,0"
+a7a700
+
+39
+value="WHS/DIST" label="Warehouse/Distribution"
+"121,221,244"                                                   "121,221,244"
+79ddf4
+
+40
+value="WTLD" label="Wetlands"
+"101,186,20"
+65ba14
+
+
+          <SCALEDEPENDENTRENDERER lower="1:1" upper="1:85000"
+            <SIMPLELABELRENDERER field="DESCRIPT"
+<TEXTSYMBOL antialiasing="true" font="Times New Roman" fontstyle="italic" fontsize="11" glowing="255,255,255"
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
