@@ -1,0 +1,392 @@
+
+====================
+Backend Alachua work
+==================== 
+
+
+Work log
+------------------------- 
+
+March 20 
++++++++++++++++++
+--> Start work Mar 20 11:00 
+<-- End workd Mar  20 12:30 
+
+--> Start work Mar 20 13:49 
+<-- End work Mar   20 13:39  
+
+--> Start work Mar 20 15:20 
+<-- End work Mar   20 16:19 
+
+
+March 23 
+++++++++++++++++++++
+one hour
+
+
+March 24 
+++++++++++++++++++++
+plus two hours. 
+ 
+--> March 24, 15:00 
+<-- March 24, 18:42 
+
+
+Configuration notes 
+========================== 
+
+
+Data
+--------
+Alachua's data is stored in a folder of shapefiles that are updated
+daily but a script. We have suggested that they switch to PostGIS, but
+at this point they are unwilling to make the change. As a result we
+need to configure GeoServer to read and server this data dir.
+
+*Location* 
+
+Its localtion on the www.nikos.alachua.fl.us server is: 
+
+C:/ArcIMS/Data/* 
+
+The sub-folders are as follows:: 
+
+   GeoCEData
+   GeoDRDdata 
+   GeoGMData 
+   MultiPatch 
+   PermitData 
+
+
+*Projection* 
+
+Alachua uses a local project for all of their data. Its ESPG is: 
+
+http://spatialreference.org/ref/esri/102660/
+
+
+Styles 
+------- 
+
+A group of styles where created for the Alachua
+project. The are hosted on github.:: 
+
+http://github.com/iwillig/alachua-sld/tree/master
+
+
+
+GeoServe extensions. 
+==========================  
+1. GDAL data store extensions -> Installed 
+2. REST API
+
+
+
+
+Alachua data. 
+
+GeoCEData
+==========================
+-rw-r--r--   1 ftp      ftp        322052 Feb 02 18:06 code_enforcement_zones.shp
+-rw-r--r--   1 ftp      ftp        186356 Jan 20 21:35 code_violations_pts.shp
+-rw-r--r--   1 ftp      ftp         88160 Jan 20 21:35 hardship_variances.shp
+-rw-r--r--   1 ftp      ftp        181692 Mar 16  2005 plss.shp
+-rw-r--r--   1 ftp      ftp        947448 Apr 14  2008 substandard_housing.shp
+-rw-r--r--   1 ftp      ftp        157748 Apr 14  2008 substandard_housing_plss.shp
+
+
+
+GeoDRData
+==========================
+-rw-r--r--   1 ftp      ftp          2172 Mar 09 09:39 development_review_pts.shp
+-rw-r--r--   1 ftp      ftp          2140 Sep 23 12:10 development_review_site_boundaries.shp
+-rw-r--r--   1 ftp      ftp          4628 Sep 23 12:10 development_review_wetlands.shp
+
+
+GeoGMData
+========================== 
+-rw-r--r--   1 ftp      ftp        127592 Nov 23  2005 665_ft_pres_buff.shp
+-rw-r--r--   1 ftp      ftp         25224 Nov 24 10:03 ACAVA_2008.shp
+-rw-r--r--   1 ftp      ftp          2032 Sep 22  2005 ACEPD_ExcavationandFillSites.shp
+-rw-r--r--   1 ftp      ftp         30460 Feb 24 16:58 acf_lands.shp
+-rw-r--r--   1 ftp      ftp           828 Jun 12  2008 acparks_pt.shp
+-rw-r--r--   1 ftp      ftp        899308 Feb 10  2004 ACPWD_MAINT_04.shp
+-rw-r--r--   1 ftp      ftp         17976 Nov 06 11:44 activity_center_boundaries.shp
+-rw-r--r--   1 ftp      ftp         65788 Dec 12 11:49 AlaRoad_maxspeed_prj.shp
+-rw-r--r--   1 ftp      ftp       3323476 Dec 12 11:49 all_road_speeds.shp
+-rw-r--r--   1 ftp      ftp        136008 May 16  2006 application_petitions.shp
+-rw-r--r--   1 ftp      ftp        649716 Mar 12 17:00 applications_petitions.shp
+-rw-r--r--   1 ftp      ftp         33488 Feb 12 00:16 applications_zoning.shp
+-rw-r--r--   1 ftp      ftp        351364 Aug 06  2008 aqcon_sp.shp
+-rw-r--r--   1 ftp      ftp           436 Sep 05  2008 automotive_recycling_centers.shp
+-rw-r--r--   1 ftp      ftp       1136212 Jul 17  2008 basins01.shp
+-rw-r--r--   1 ftp      ftp         29096 Oct 11  2007 bicycle_facilities.shp
+-rw-r--r--   1 ftp      ftp          8964 Oct 17  2007 bicycle_facilities_proposed.shp
+-rw-r--r--   1 ftp      ftp          3152 Apr 19  2005 big_trees.shp
+-rw-r--r--   1 ftp      ftp           436 Nov 18 11:07 bike_stores.shp
+-rw-r--r--   1 ftp      ftp           856 Oct 15  2007 bikeway_connectors.shp
+-rw-r--r--   1 ftp      ftp          5244 Oct 15  2007 bikeway_connectors_line.shp
+-rw-r--r--   1 ftp      ftp           912 Jul 11  2008 bookstores.shp
+-rw-r--r--   1 ftp      ftp         11448 Oct 17  2007 braided_roads.shp
+-rw-r--r--   1 ftp      ftp        226332 Apr 19  2005 census_blockgroups_2000.shp
+-rw-r--r--   1 ftp      ftp        226332 Aug 01  2008 census_blockgroups_juv_offenders.shp
+-rw-r--r--   1 ftp      ftp        226332 Aug 01  2008 census_blockgroups_juv_offenses.shp
+-rw-r--r--   1 ftp      ftp       1768344 Apr 19  2005 census_blocks_2000.shp
+-rw-r--r--   1 ftp      ftp       1768344 Aug 01  2008 census_blocks_juv_offenders.shp
+-rw-r--r--   1 ftp      ftp       1768344 Aug 01  2008 census_blocks_juv_offenses.shp
+-rw-r--r--   1 ftp      ftp        123948 Apr 19  2005 census_tracts_2000.shp
+-rw-r--r--   1 ftp      ftp        123948 Aug 01  2008 census_tracts_juv_offenders.shp
+-rw-r--r--   1 ftp      ftp        123948 Aug 01  2008 census_tracts_juv_offenses.shp
+-rw-r--r--   1 ftp      ftp        103528 Jun 06  2008 cgparks.shp
+-rw-r--r--   1 ftp      ftp           912 Oct 20  2005 city_county_stations_pt.shp
+-rw-r--r--   1 ftp      ftp           296 Oct 20  2005 city_stations_pt.shp
+-rw-r--r--   1 ftp      ftp        579772 May 28  2008 cntbnd01.shp
+-rw-r--r--   1 ftp      ftp        303476 Mar 02  2006 collector_roads.shp
+-rw-r--r--   1 ftp      ftp        275116 Feb 21  2005 comm_districts.shp
+-rw-r--r--   1 ftp      ftp           212 Aug 13  2008 comm_gardens.shp
+-rw-r--r--   1 ftp      ftp         24284 Jun 06  2005 comm_supp_services_data.shp
+-rw-r--r--   1 ftp      ftp         17916 Jul 30  2008 corridors_connections_new_ft.shp
+-rw-r--r--   1 ftp      ftp        579772 May 28  2008 county.shp
+-rw-r--r--   1 ftp      ftp           716 Oct 20  2005 county_stations_pt.shp
+-rw-r--r--   1 ftp      ftp        255588 Sep 25 21:08 CSA_Elemschool.shp
+-rw-r--r--   1 ftp      ftp        223236 Sep 25 21:08 CSA_Highschool.shp
+-rw-r--r--   1 ftp      ftp        222588 Sep 25 21:08 CSA_Middleschool.shp
+-rw-r--r--   1 ftp      ftp          1892 Nov 18 11:07 cultural_centers.shp
+-rw-r--r--   1 ftp      ftp       3515080 Mar 09 14:25 E911_address_pts.shp
+-rw-r--r--   1 ftp      ftp       2593436 Sep 04  2008 e911_roads.shp
+-rw-r--r--   1 ftp      ftp       3277580 Jun 20  2005 e911_roads_merge.shp
+-rw-r--r--   1 ftp      ftp       3138144 Feb 25  2005 ecological_inventory.shp
+-rw-r--r--   1 ftp      ftp         96704 Oct 09 16:41 extra_terr_reserves.shp
+-rw-r--r--   1 ftp      ftp        275384 Dec 12 16:41 fdot_maxspeed_alaregion.shp
+-rw-r--r--   1 ftp      ftp       6242260 Nov 14  2006 fema06.shp
+-rw-r--r--   1 ftp      ftp           884 Oct 25  2005 Fire_Stations.shp
+-rw-r--r--   1 ftp      ftp          1080 Nov 18 11:07 fmarkets.shp
+-rw-r--r--   1 ftp      ftp          5564 Apr 19  2005 fnaica.shp
+-rw-r--r--   1 ftp      ftp          5564 Oct 19  2004 fnaica01.shp
+-rw-r--r--   1 ftp      ftp         58504 Apr 19  2005 fnaicb.shp
+-rw-r--r--   1 ftp      ftp         58504 Oct 19  2004 fnaicb01.shp
+-rw-r--r--   1 ftp      ftp         33540 Apr 19  2005 fnaicc.shp
+-rw-r--r--   1 ftp      ftp         33540 Oct 19  2004 fnaicc01.shp
+-rw-r--r--   1 ftp      ftp           520 Jan 23 14:33 food_banks.shp
+-rw-r--r--   1 ftp      ftp       1489784 Mar 10 17:29 future_land_use.shp
+-rw-r--r--   1 ftp      ftp          2532 Jul 22  2008 gc_assisted_housing01.shp
+-rw-r--r--   1 ftp      ftp           268 Jul 22  2008 gc_correctional_may0801.shp
+-rw-r--r--   1 ftp      ftp          2256 Jul 22  2008 gc_culturecenter_feb0801.shp
+-rw-r--r--   1 ftp      ftp         11384 Jul 22  2008 gc_religion_sep0501.shp
+-rw-r--r--   1 ftp      ftp        502644 Jul 23  2008 gwpeax.shp
+-rw-r--r--   1 ftp      ftp       2659604 Aug 08  2008 gwpeax_reg.shp
+-rw-r--r--   1 ftp      ftp         88624 Mar 26  2008 hardship_variances.shp
+-rw-r--r--   1 ftp      ftp           884 Aug 17  2006 historic_markers.shp
+-rw-r--r--   1 ftp      ftp         27288 Apr 12  2007 historic_structures.shp
+-rw-r--r--   1 ftp      ftp           296 Oct 19  2004 hospit.shp
+-rw-r--r--   1 ftp      ftp          1724 Jul 25  2008 Hotels.shp
+-rw-r--r--   1 ftp      ftp        280028 Dec 19 00:24 impact_fee_districts.shp
+-rw-r--r--   1 ftp      ftp        119324 Oct 09 16:41 lakes.shp
+-rw-r--r--   1 ftp      ftp           604 Jun 20  2008 libraries.shp
+-rw-r--r--   1 ftp      ftp        502384 Nov 25 10:49 majrds01.shp
+-rw-r--r--   1 ftp      ftp           996 Mar 17 12:55 medicaid_providers.shp
+-rw-r--r--   1 ftp      ftp        154196 Nov 25 10:49 mjrds01.shp
+-rw-r--r--   1 ftp      ftp         27388 Apr 19  2005 mjrivl01.shp
+-rw-r--r--   1 ftp      ftp        192048 Mar 10 17:31 municipalities.shp
+-rw-r--r--   1 ftp      ftp           268 Nov 18 11:07 natural_food_stores.shp
+-rw-r--r--   1 ftp      ftp         17016 Sep 13  2007 oblique_imagery_extent.shp
+-rw-r--r--   1 ftp      ftp      27354000 Feb 03 18:04 parcels.shp
+-rw-r--r--   1 ftp      ftp        136388 Aug 26  2008 parks.shp
+-rw-r--r--   1 ftp      ftp         68548 Jul 25  2008 Paynes_Prairie_West.shp
+-rw-r--r--   1 ftp      ftp         68548 Jul 25  2008 Paynes_Prairie_West_SAS.shp
+-rw-r--r--   1 ftp      ftp        160452 Jun 02  2008 plss_full_sections.shp
+-rw-r--r--   1 ftp      ftp           772 Aug 18  2008 pnursery.shp
+-rw-r--r--   1 ftp      ftp          2368 Aug 13  2008 points_of_interest.shp
+-rw-r--r--   1 ftp      ftp         31040 Oct 16 11:45 Posted_Speed_Limit_Alachua_County.shp
+-rw-r--r--   1 ftp      ftp        160452 Jun 02  2008 public_land_survey_system.shp
+-rw-r--r--   1 ftp      ftp        119256 Oct 19  2004 radprt.shp
+-rw-r--r--   1 ftp      ftp       3767324 Oct 19  2004 rds2401.shp
+-rw-r--r--   1 ftp      ftp           408 Nov 18 11:07 recycling_centers.shp
+-rw-r--r--   1 ftp      ftp        107740 Jan 07 22:15 RTS_Routes.shp
+-rw-r--r--   1 ftp      ftp         33112 Jan 07 22:15 RTS_Stops.shp
+-rw-r--r--   1 ftp      ftp         75916 Mar 24  2008 rural_clusters.shp
+-rw-r--r--   1 ftp      ftp          7504 Apr 19  2005 scenic_roads.shp
+-rw-r--r--   1 ftp      ftp           464 May 02  2001 scenic_roads_images.shp
+-rw-r--r--   1 ftp      ftp          8464 Mar 05  2008 scenic_roadways.shp
+-rw-r--r--   1 ftp      ftp        109580 Jan 13 11:21 school_zones_elementary.shp
+-rw-r--r--   1 ftp      ftp         69220 Jan 13 11:27 school_zones_high.shp
+-rw-r--r--   1 ftp      ftp         68284 Jan 13 12:02 school_zones_middle.shp
+-rw-r--r--   1 ftp      ftp          1220 Nov 25 13:56 schools.shp
+-rw-r--r--   1 ftp      ftp           716 Oct 02  2006 schools_elementary.shp
+-rw-r--r--   1 ftp      ftp           268 Oct 02  2006 schools_high.shp
+-rw-r--r--   1 ftp      ftp           352 Oct 02  2006 schools_middle.shp
+-rw-r--r--   1 ftp      ftp          4440 Feb 27  2008 Ship_beneficiaries_pts.shp
+-rw-r--r--   1 ftp      ftp          4996 Oct 15  2007 sidewalks_proposed.shp
+-rw-r--r--   1 ftp      ftp          1276 Apr 13  2005 snkhle.shp
+-rw-r--r--   1 ftp      ftp         22644 Nov 06 11:44 special_area_studies.shp
+-rw-r--r--   1 ftp      ftp           856 Sep 26  2005 SSURGO_BorrowPits_SpoilAreas.shp
+-rw-r--r--   1 ftp      ftp        397736 Sep 26  2005 SSURGO_ExcavationandFill.shp
+-rw-r--r--   1 ftp      ftp         45012 Sep 26  2005 SSURGO_Sinkholes.shp
+-rw-r--r--   1 ftp      ftp        105784 Aug 01  2006 strategic_ecosystems.shp
+-rw-r--r--   1 ftp      ftp       3404004 Aug 27  2008 stream_all.shp
+-rw-r--r--   1 ftp      ftp        127708 Aug 26  2008 stream01.shp
+-rw-r--r--   1 ftp      ftp       6686052 Oct 20  2004 subdivision_boundaries.shp
+-rw-r--r--   1 ftp      ftp        434208 Sep 18  2008 TAZ2000.shp
+-rw-r--r--   1 ftp      ftp           576 Nov 18 11:07 thrift_stores.shp
+-rw-r--r--   1 ftp      ftp         10640 Oct 03  2007 trails.shp
+-rw-r--r--   1 ftp      ftp         83588 Oct 19  2004 trl03ea.shp
+-rw-r--r--   1 ftp      ftp         55608 Jan 15 18:33 urban_cluster.shp
+-rw-r--r--   1 ftp      ftp         50980 Mar 18  2008 urban_reserves.shp
+-rw-r--r--   1 ftp      ftp          1004 Mar 19  2008 urban_services_archer.shp
+-rw-r--r--   1 ftp      ftp         54888 Jan 15 18:33 urban_services_line.shp
+-rw-r--r--   1 ftp      ftp        175388 Jan 22 18:13 vegetative_buffer_overlay.shp
+-rw-r--r--   1 ftp      ftp          1500 Jun 21  2008 veteran_memorial_pts.shp
+-rw-r--r--   1 ftp      ftp        284200 Apr 19  2005 water.shp
+-rw-r--r--   1 ftp      ftp       7817388 Apr 06  2005 wetlands.shp
+-rw-r--r--   1 ftp      ftp       9809984 Oct 30 14:05 wetlands_2008.shp
+-rw-r--r--   1 ftp      ftp       7817388 Apr 06  2005 wetlands_simple.shp
+-rw-r--r--   1 ftp      ftp      77059216 May 11  2006 wetlands_union_p.shp
+-rw-r--r--   1 ftp      ftp         53968 Apr 19  2005 zipbnd.shp
+-rw-r--r--   1 ftp      ftp         24284 Apr 19  2005 zipbnd01.shp
+-rw-r--r--   1 ftp      ftp         24284 May 11  2006 zipcode_cssdata.shp
+-rw-r--r--   1 ftp      ftp       1526268 Mar 12 16:17 zoning.shp
+-rw-r--r--   1 ftp      ftp       1626604 Nov 03  2006 zoning_current.shp
+
+
+MultiPatch
+================== 
+-rw-r--r--   1 ftp      ftp          3808 May 08  2006 export_simple.shp
+
+
+
+PermitData
+================== 
+-rw-r--r--   1 ftp      ftp        280488 Mar 10 17:30 building_inspection_zones.shp
+-rw-r--r--   1 ftp      ftp        380172 Jan 20 21:10 certificates_of_occupancy_pts.shp
+-rw-r--r--   1 ftp      ftp        322052 Feb 02 18:05 code_enforcement_zones.shp
+-rw-r--r--   1 ftp      ftp        236808 Dec 11  2007 impact_fee_districts.shp
+-rw-r--r--   1 ftp      ftp      27354000 Feb 03 18:04 parcels.shp
+-rw-r--r--   1 ftp      ftp         83568 Jan 22 12:41 septic_system_permits_pts.shp
+
+
+
+
+
+
+
+
+
+
+
+
+Notes from NYC-Tim
+--------------------
+GeoPT, GeoDR, GeoCE, and GeoGM 
+
+
+
+Styles that have no layers 
+===========================
+building_inspection_zones.sld 
+certificates_of_occupancy_pts.sld 
+
+
+Layers that have no Style
+===========================
+GeoRDData
+---------- 
+development_review_pts
+development_review_site_boundaries
+development_review_site_wetlands 
+* ^ note these need to be used twice 
+
+GeoGMData
+-----------
+ACAVA_2008
+ACEPD_ExcavationandFillSites
+AlaRoad_maxspeed_prj
+CSA_Elemschool
+CSA_Highschool
+CSA_Middleschool
+Fire_Stations
+Hotels
+Paynes_Prairie_West
+Paynes_Prairie_West_SAS
+Posted_Speed_Limit_Alachua_County
+RTS_Routes
+RTS_Stops
+Ship_beneficiaries_pts
+TAZ2000
+acparks_pt 
+all_road_speeds 
+aqcon_sp 
+automotive_recycling_centers 
+basins01 
+bike_stores
+bookstores 
+
+census_blockgroups_juv_offenders 
+census_blockgroups_juv_offendes
+
+census_blocks_juv_offenders
+census_blocks_juv_offendes
+
+census_tracts_juv_offenders
+census_tracts_juv_offendes
+
+cgparks
+city_county_stations_pt
+city_county_stations_pt
+comm_garden 
+comm_supp_services_data
+corridors_connections_new_ft
+county 
+county_stations_pt 
+cultural_centers 
+
+e911_roads_merge 
+
+fdot_maxspeed_alaregion
+fmarkets 
+fnaica 
+fnaicb 
+fnaicc 
+food_banks
+
+gc_assisted_housing01 
+gc_correctional_may0801
+gc_culturecenter_feb0801
+gc_religion_sep0501
+gwpeax
+gwpeax_reg
+
+libraries
+
+medicaid_providers 
+
+mjrds01 
+mjrivl01 
+
+natural_food_stores
+
+parks 
+plss_full_sections 
+pnursery
+
+recycling_centers 
+
+scenic_roads
+scenic_roads_images
+
+
+
+schools
+snkhel 
+stream01 
+stream_all
+subdivision_boundaries 
+thrift_stores 
+
+
+wetlands_2008
+wetlands_simple 
+wetlands_union_p
+
+zipbnd 
+zonning_current
+
