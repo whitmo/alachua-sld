@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>Backend Alachua work</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="backend-alachua-work">
+<h1 class="title">Backend Alachua work</h1>
+
+<div class="section" id="work-log">
+<h1>Work log</h1>
+<div class="section" id="march-20">
+<h2>March 20</h2>
+<p>--&gt; Start work Mar 20 11:00
+&lt;-- End workd Mar  20 12:30</p>
+<p>--&gt; Start work Mar 20 13:49
+&lt;-- End work Mar   20 13:39</p>
+<p>--&gt; Start work Mar 20 15:20
+&lt;-- End work Mar   20 16:19</p>
+</div>
+<div class="section" id="march-23">
+<h2>March 23</h2>
+<p>one hour</p>
+</div>
+<div class="section" id="march-24">
+<h2>March 24</h2>
+<p>plus two hours.</p>
+<p>--&gt; March 24, 15:00
+&lt;-- March 24, 18:42</p>
+<div class="section" id="configuration-notes">
+<h3>Configuration notes</h3>
+<p>geoserver is 1.7.3 +
+extensions -&gt;</p>
+</div>
+</div>
+<div class="section" id="march-26">
+<h2>March 26</h2>
+<p>Mar 26 14:28</p>
+</div>
+</div>
+<div class="section" id="data">
+<h1>Data</h1>
+<p>Alachua's data is stored in a folder of shapefiles that are updated
+daily but a script. We have suggested that they switch to PostGIS, but
+at this point they are unwilling to make the change. As a result we
+need to configure GeoServer to read and server this data dir.</p>
+<p><em>Location</em></p>
+<p>Its localtion on the www.nikos.alachua.fl.us server is:</p>
+<p>C:/ArcIMS/Data/*</p>
+<p>The sub-folders are as follows:</p>
+<pre class="literal-block">
+GeoCEData
+GeoDRDdata
+GeoGMData
+MultiPatch
+PermitData
+</pre>
+<p><em>Projection</em></p>
+<p>Alachua uses a local project for all of their data. Its ESPG is:</p>
+<p><a class="reference external" href="http://spatialreference.org/ref/esri/102660/">http://spatialreference.org/ref/esri/102660/</a></p>
+</div>
+<div class="section" id="styles">
+<h1>Styles</h1>
+<p>A group of styles where created for the Alachua
+project. The are hosted on github.:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">README.txt</tt>, line 82)</p>
+Literal block expected; none found.</div>
+<p><a class="reference external" href="http://github.com/iwillig/alachua-sld/tree/master">http://github.com/iwillig/alachua-sld/tree/master</a></p>
+</div>
+<div class="section" id="geoserve-extensions">
+<h1>GeoServe extensions.</h1>
+<ol class="arabic simple">
+<li>GDAL data store extensions -&gt; Installed</li>
+<li>REST API</li>
+</ol>
+<p>Alachua data.</p>
+</div>
+<div class="section" id="geocedata">
+<h1>GeoCEData</h1>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        322052 Feb 02 18:06 code_enforcement_zones.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        186356 Jan 20 21:35 code_violations_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         88160 Jan 20 21:35 hardship_variances.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        181692 Mar 16  2005 plss.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        947448 Apr 14  2008 substandard_housing.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        157748 Apr 14  2008 substandard_housing_plss.shp</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="geodrdata">
+<h1>GeoDRData</h1>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2172 Mar 09 09:39 development_review_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2140 Sep 23 12:10 development_review_site_boundaries.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          4628 Sep 23 12:10 development_review_wetlands.shp</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="geogmdata">
+<h1>GeoGMData</h1>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        127592 Nov 23  2005 665_ft_pres_buff.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         25224 Nov 24 10:03 ACAVA_2008.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2032 Sep 22  2005 ACEPD_ExcavationandFillSites.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         30460 Feb 24 16:58 acf_lands.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           828 Jun 12  2008 acparks_pt.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        899308 Feb 10  2004 ACPWD_MAINT_04.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         17976 Nov 06 11:44 activity_center_boundaries.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         65788 Dec 12 11:49 AlaRoad_maxspeed_prj.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3323476 Dec 12 11:49 all_road_speeds.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        136008 May 16  2006 application_petitions.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        649716 Mar 12 17:00 applications_petitions.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         33488 Feb 12 00:16 applications_zoning.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        351364 Aug 06  2008 aqcon_sp.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           436 Sep 05  2008 automotive_recycling_centers.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1136212 Jul 17  2008 basins01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         29096 Oct 11  2007 bicycle_facilities.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          8964 Oct 17  2007 bicycle_facilities_proposed.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          3152 Apr 19  2005 big_trees.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           436 Nov 18 11:07 bike_stores.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           856 Oct 15  2007 bikeway_connectors.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          5244 Oct 15  2007 bikeway_connectors_line.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           912 Jul 11  2008 bookstores.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         11448 Oct 17  2007 braided_roads.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        226332 Apr 19  2005 census_blockgroups_2000.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        226332 Aug 01  2008 census_blockgroups_juv_offenders.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        226332 Aug 01  2008 census_blockgroups_juv_offenses.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1768344 Apr 19  2005 census_blocks_2000.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1768344 Aug 01  2008 census_blocks_juv_offenders.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1768344 Aug 01  2008 census_blocks_juv_offenses.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        123948 Apr 19  2005 census_tracts_2000.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        123948 Aug 01  2008 census_tracts_juv_offenders.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        123948 Aug 01  2008 census_tracts_juv_offenses.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        103528 Jun 06  2008 cgparks.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           912 Oct 20  2005 city_county_stations_pt.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           296 Oct 20  2005 city_stations_pt.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        579772 May 28  2008 cntbnd01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        303476 Mar 02  2006 collector_roads.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        275116 Feb 21  2005 comm_districts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           212 Aug 13  2008 comm_gardens.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         24284 Jun 06  2005 comm_supp_services_data.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         17916 Jul 30  2008 corridors_connections_new_ft.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        579772 May 28  2008 county.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           716 Oct 20  2005 county_stations_pt.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        255588 Sep 25 21:08 CSA_Elemschool.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        223236 Sep 25 21:08 CSA_Highschool.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        222588 Sep 25 21:08 CSA_Middleschool.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1892 Nov 18 11:07 cultural_centers.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3515080 Mar 09 14:25 E911_address_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       2593436 Sep 04  2008 e911_roads.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3277580 Jun 20  2005 e911_roads_merge.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3138144 Feb 25  2005 ecological_inventory.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         96704 Oct 09 16:41 extra_terr_reserves.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        275384 Dec 12 16:41 fdot_maxspeed_alaregion.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       6242260 Nov 14  2006 fema06.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           884 Oct 25  2005 Fire_Stations.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1080 Nov 18 11:07 fmarkets.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          5564 Apr 19  2005 fnaica.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          5564 Oct 19  2004 fnaica01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         58504 Apr 19  2005 fnaicb.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         58504 Oct 19  2004 fnaicb01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         33540 Apr 19  2005 fnaicc.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         33540 Oct 19  2004 fnaicc01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           520 Jan 23 14:33 food_banks.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1489784 Mar 10 17:29 future_land_use.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2532 Jul 22  2008 gc_assisted_housing01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           268 Jul 22  2008 gc_correctional_may0801.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2256 Jul 22  2008 gc_culturecenter_feb0801.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         11384 Jul 22  2008 gc_religion_sep0501.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        502644 Jul 23  2008 gwpeax.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       2659604 Aug 08  2008 gwpeax_reg.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         88624 Mar 26  2008 hardship_variances.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           884 Aug 17  2006 historic_markers.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         27288 Apr 12  2007 historic_structures.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           296 Oct 19  2004 hospit.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1724 Jul 25  2008 Hotels.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        280028 Dec 19 00:24 impact_fee_districts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        119324 Oct 09 16:41 lakes.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           604 Jun 20  2008 libraries.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        502384 Nov 25 10:49 majrds01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           996 Mar 17 12:55 medicaid_providers.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        154196 Nov 25 10:49 mjrds01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         27388 Apr 19  2005 mjrivl01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        192048 Mar 10 17:31 municipalities.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           268 Nov 18 11:07 natural_food_stores.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         17016 Sep 13  2007 oblique_imagery_extent.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp      27354000 Feb 03 18:04 parcels.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        136388 Aug 26  2008 parks.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         68548 Jul 25  2008 Paynes_Prairie_West.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         68548 Jul 25  2008 Paynes_Prairie_West_SAS.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        160452 Jun 02  2008 plss_full_sections.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           772 Aug 18  2008 pnursery.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          2368 Aug 13  2008 points_of_interest.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         31040 Oct 16 11:45 Posted_Speed_Limit_Alachua_County.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        160452 Jun 02  2008 public_land_survey_system.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        119256 Oct 19  2004 radprt.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3767324 Oct 19  2004 rds2401.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           408 Nov 18 11:07 recycling_centers.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        107740 Jan 07 22:15 RTS_Routes.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         33112 Jan 07 22:15 RTS_Stops.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         75916 Mar 24  2008 rural_clusters.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          7504 Apr 19  2005 scenic_roads.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           464 May 02  2001 scenic_roads_images.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          8464 Mar 05  2008 scenic_roadways.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        109580 Jan 13 11:21 school_zones_elementary.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         69220 Jan 13 11:27 school_zones_high.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         68284 Jan 13 12:02 school_zones_middle.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1220 Nov 25 13:56 schools.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           716 Oct 02  2006 schools_elementary.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           268 Oct 02  2006 schools_high.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           352 Oct 02  2006 schools_middle.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          4440 Feb 27  2008 Ship_beneficiaries_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          4996 Oct 15  2007 sidewalks_proposed.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1276 Apr 13  2005 snkhle.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         22644 Nov 06 11:44 special_area_studies.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           856 Sep 26  2005 SSURGO_BorrowPits_SpoilAreas.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        397736 Sep 26  2005 SSURGO_ExcavationandFill.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         45012 Sep 26  2005 SSURGO_Sinkholes.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        105784 Aug 01  2006 strategic_ecosystems.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       3404004 Aug 27  2008 stream_all.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        127708 Aug 26  2008 stream01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       6686052 Oct 20  2004 subdivision_boundaries.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        434208 Sep 18  2008 TAZ2000.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp           576 Nov 18 11:07 thrift_stores.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         10640 Oct 03  2007 trails.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         83588 Oct 19  2004 trl03ea.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         55608 Jan 15 18:33 urban_cluster.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         50980 Mar 18  2008 urban_reserves.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1004 Mar 19  2008 urban_services_archer.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         54888 Jan 15 18:33 urban_services_line.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        175388 Jan 22 18:13 vegetative_buffer_overlay.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          1500 Jun 21  2008 veteran_memorial_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        284200 Apr 19  2005 water.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       7817388 Apr 06  2005 wetlands.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       9809984 Oct 30 14:05 wetlands_2008.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       7817388 Apr 06  2005 wetlands_simple.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp      77059216 May 11  2006 wetlands_union_p.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         53968 Apr 19  2005 zipbnd.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         24284 Apr 19  2005 zipbnd01.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         24284 May 11  2006 zipcode_cssdata.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1526268 Mar 12 16:17 zoning.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp       1626604 Nov 03  2006 zoning_current.shp</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multipatch">
+<h1>MultiPatch</h1>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp          3808 May 08  2006 export_simple.shp</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="permitdata">
+<h1>PermitData</h1>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        280488 Mar 10 17:30 building_inspection_zones.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        380172 Jan 20 21:10 certificates_of_occupancy_pts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        322052 Feb 02 18:05 code_enforcement_zones.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp        236808 Dec 11  2007 impact_fee_districts.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp      27354000 Feb 03 18:04 parcels.shp</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r<var>w-r--r--</var></span></kbd></td>
+<td>1 ftp      ftp         83568 Jan 22 12:41 septic_system_permits_pts.shp</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notes-from-nyc-tim">
+<h1>Notes from NYC-Tim</h1>
+<p>GeoPT, GeoDR, GeoCE, and GeoGM</p>
+</div>
+<div class="section" id="styles-that-have-no-layers">
+<h1>Styles that have no layers</h1>
+<p>building_inspection_zones.sld
+certificates_of_occupancy_pts.sld</p>
+</div>
+<div class="section" id="layers-that-have-no-style">
+<h1>Layers that have no Style</h1>
+</div>
+<div class="section" id="georddata">
+<h1>GeoRDData</h1>
+<p>development_review_pts
+development_review_site_boundaries
+development_review_site_wetlands
+* ^ note these need to be used twice</p>
+</div>
+<div class="section" id="id1">
+<h1>GeoGMData</h1>
+<p>ACAVA_2008
+ACEPD_ExcavationandFillSites
+AlaRoad_maxspeed_prj</p>
+<p>CSA_Elemschool
+CSA_Highschool
+CSA_Middleschool</p>
+<p>Fire_Stations</p>
+<p>Hotels</p>
+<p>Paynes_Prairie_West
+Paynes_Prairie_West_SAS
+Posted_Speed_Limit_Alachua_County</p>
+<p>RTS_Routes
+RTS_Stops</p>
+<p>Ship_beneficiaries_pts</p>
+<p>TAZ2000</p>
+<p>acparks_pt
+all_road_speeds
+aqcon_sp
+automotive_recycling_centers</p>
+<p>basins01
+bike_stores
+bookstores</p>
+<p>census_blockgroups_juv_offenders
+census_blockgroups_juv_offendes</p>
+<p>census_blocks_juv_offenders
+census_blocks_juv_offendes</p>
+<p>census_tracts_juv_offenders
+census_tracts_juv_offendes</p>
+<p>cgparks
+city_county_stations_pt
+city_county_stations_pt
+comm_garden
+comm_supp_services_data
+corridors_connections_new_ft
+county
+county_stations_pt
+cultural_centers</p>
+<p>e911_roads_merge</p>
+<p>fdot_maxspeed_alaregion
+fmarkets
+fnaica
+fnaicb
+fnaicc
+food_banks</p>
+<p>gc_assisted_housing01
+gc_correctional_may0801
+gc_culturecenter_feb0801
+gc_religion_sep0501
+gwpeax
+gwpeax_reg</p>
+<p>libraries</p>
+<p>medicaid_providers</p>
+<p>mjrds01
+mjrivl01</p>
+<p>natural_food_stores</p>
+<p>parks
+plss_full_sections
+pnursery</p>
+<p>recycling_centers</p>
+<p>scenic_roads
+scenic_roads_images</p>
+<p>schools
+snkhel
+stream01
+stream_all
+subdivision_boundaries
+thrift_stores</p>
+<p>wetlands_2008
+wetlands_simple
+wetlands_union_p</p>
+<p>zipbnd
+zonning_current</p>
+</div>
+<div class="section" id="layer-listings">
+<h1>Layer Listings</h1>
+<p>These are the layers that are currently configured in Alachua's GIS
+viewers</p>
+</div>
+<div class="section" id="geogm">
+<h1>GeoGM</h1>
+<div class="section" id="search-layers">
+<h2>Search Layers</h2>
+<p>Tax Parcels
+STR ( Full Sections )
+Address Points</p>
+</div>
+<div class="section" id="housing">
+<h2>Housing</h2>
+<p>Ship data( 2002, 2007)
+Assisted Rental Housing
+Substandard Housing (Parcels)
+Substandard Housing (STR)</p>
+</div>
+<div class="section" id="community-landmarks">
+<h2>Community Landmarks</h2>
+<p>Assisted Food Service
+Cultural Centers
+Religious Centers
+Correctional Facilities
+Historic Markers
+Historic Memorials
+Hospitials
+Fire Stations
+Hotels
+Farmer Markets
+Libraries
+Bookstores
+Parks</p>
+</div>
+<div class="section" id="schools-and-schools-zones">
+<h2>Schools and Schools Zones</h2>
+<p>High Schools
+High Schools CSA
+High School Zones
+Middle Schools
+Middle School CSA
+Middle School Zones</p>
+<p>Elementary Schools
+Elementary School CSA
+Elementary School Zones</p>
+</div>
+<div class="section" id="roadways">
+<h2>Roadways</h2>
+<p>Scenic Roads
+Future Traffic Corrdiors
+County Maintained Roads
+Collector Roads
+Major Roads
+All Roads</p>
+</div>
+<div class="section" id="new-development">
+<h2>New Development</h2>
+<p>Approved Developments 2008-Present
+Certificates of Occupancy (1994 - 2008)
+Septic Systems Permits (2000 -2008)</p>
+</div>
+<div class="section" id="surface-waters">
+<h2>Surface Waters</h2>
+<p>Lakes
+Wetlands (Updateded '08)
+Wetlands (Adopted 05)
+FEMA Flood 2006
+Drainage Basins</p>
+</div>
+<div class="section" id="conservation">
+<h2>Conservation</h2>
+<p>Champion Trees
+Sinkholes
+Paynes Prairie West
+Alachua City Forever Lands
+Strategic Ecosystems</p>
+</div>
+<div class="section" id="environmmental-hazards">
+<h2>Environmmental Hazards</h2>
+<p>Pits and Spoil Areas
+Excavations and Fill Sites
+Excavations and Fill Soils
+Radon Protection</p>
+</div>
+<div class="section" id="boundaries">
+<h2>Boundaries</h2>
+<p>County Boundary
+Commissioner Districts
+Zip Codes
+TAZ2000
+Municipalities
+Impact Fee Districts
+Urban Reserves
+Extra Territorial Reserves</p>
+</div>
+<div class="section" id="land-use">
+<h2>Land Use</h2>
+<p>Activity Centers
+Special Area Studies
+Rural Clusters
+Urban Services Line
+Urban  Clusters
+Future Land Use
+FLU Preservation Buffer
+Zonning Districts</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -8,9 +8,7 @@
             <sld:Name>Default Styler</sld:Name>
             <sld:Title>Default Styler</sld:Title>
             <sld:Abstract/>
-
-
-				<!-- roads zoomed in -->
+	    <!-- roads zoomed in -->
             <sld:FeatureTypeStyle>
                 <sld:Rule>
                     <sld:Name>name</sld:Name>
@@ -46,9 +44,8 @@
                         </sld:Stroke>
                     </sld:LineSymbolizer>
                 </sld:Rule>
-            </sld:FeatureTypeStyle>
-				
-				<!-- roads zoomed out -->
+            </sld:FeatureTypeStyle>				
+	    <!-- roads zoomed out -->
             <sld:FeatureTypeStyle>
                 <sld:Rule>
                     <sld:Name>name</sld:Name>
@@ -68,7 +65,7 @@
                 </sld:Rule>
             </sld:FeatureTypeStyle>
             <sld:FeatureTypeStyle>
-				<!-- I-75 -->				
+	      <!-- I-75 -->				
                 <sld:Rule>
                     <sld:Name>name</sld:Name>
                     <sld:Title>title</sld:Title>

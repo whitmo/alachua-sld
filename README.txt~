@@ -20,12 +20,12 @@ March 20
 
 
 March 23 
-++++++++++++++++++++
+++++++++++++++++
 one hour
 
 
 March 24 
-++++++++++++++++++++
++++++++++++++++
 plus two hours. 
  
 --> March 24, 15:00 
@@ -33,10 +33,14 @@ plus two hours.
 
 
 Configuration notes 
-========================== 
+=====================
 geoserver is 1.7.3 + 
 extensions -> 
 
+
+March 26
++++++++++++++++
+Mar 26 14:28
 
 
 
@@ -80,7 +84,7 @@ http://github.com/iwillig/alachua-sld/tree/master
 
 
 GeoServe extensions. 
-==========================  
+-----------------------
 1. GDAL data store extensions -> Installed 
 2. REST API
 
@@ -90,7 +94,7 @@ GeoServe extensions.
 Alachua data. 
 
 GeoCEData
-==========================
+-------------------------------
 -rw-r--r--   1 ftp      ftp        322052 Feb 02 18:06 code_enforcement_zones.shp
 -rw-r--r--   1 ftp      ftp        186356 Jan 20 21:35 code_violations_pts.shp
 -rw-r--r--   1 ftp      ftp         88160 Jan 20 21:35 hardship_variances.shp
@@ -101,14 +105,14 @@ GeoCEData
 
 
 GeoDRData
-==========================
+-------------------------------
 -rw-r--r--   1 ftp      ftp          2172 Mar 09 09:39 development_review_pts.shp
 -rw-r--r--   1 ftp      ftp          2140 Sep 23 12:10 development_review_site_boundaries.shp
 -rw-r--r--   1 ftp      ftp          4628 Sep 23 12:10 development_review_wetlands.shp
 
 
 GeoGMData
-========================== 
+-------------------------------
 -rw-r--r--   1 ftp      ftp        127592 Nov 23  2005 665_ft_pres_buff.shp
 -rw-r--r--   1 ftp      ftp         25224 Nov 24 10:03 ACAVA_2008.shp
 -rw-r--r--   1 ftp      ftp          2032 Sep 22  2005 ACEPD_ExcavationandFillSites.shp
@@ -253,13 +257,15 @@ GeoGMData
 
 
 MultiPatch
-================== 
+-------------------------------
+
 -rw-r--r--   1 ftp      ftp          3808 May 08  2006 export_simple.shp
 
 
 
 PermitData
-================== 
+-------------------------------
+
 -rw-r--r--   1 ftp      ftp        280488 Mar 10 17:30 building_inspection_zones.shp
 -rw-r--r--   1 ftp      ftp        380172 Jan 20 21:10 certificates_of_occupancy_pts.shp
 -rw-r--r--   1 ftp      ftp        322052 Feb 02 18:05 code_enforcement_zones.shp
@@ -285,13 +291,13 @@ GeoPT, GeoDR, GeoCE, and GeoGM
 
 
 Styles that have no layers 
-===========================
+---------------------------
 building_inspection_zones.sld 
 certificates_of_occupancy_pts.sld 
 
 
 Layers that have no Style
-===========================
+---------------------------
 GeoRDData
 ---------- 
 development_review_pts
@@ -406,10 +412,18 @@ zonning_current
 
 
 Layer Listings
-===============
+--------------
 
 These are the layers that are currently configured in Alachua's GIS
 viewers
+
+
+
+
+
+
+
+
 
 
 GeoGM 
@@ -451,8 +465,101 @@ Parks
 Schools and Schools Zones 
 +++++++++++++++++++++++++ 
 High Schools 
-High 
+High Schools CSA 
+High School Zones 
+Middle Schools 
+Middle School CSA 
+Middle School Zones 
+
+Elementary Schools 
+Elementary School CSA 
+Elementary School Zones 
 
 
+Roadways 
++++++++++++++++++++
+Scenic Roads 
+Future Traffic Corrdiors 
+County Maintained Roads 
+Collector Roads 
+Major Roads 
+All Roads 
+
+New Development
++++++++++++++++++ 
+Approved Developments 2008-Present 
+Certificates of Occupancy (1994 - 2008) 
+Septic Systems Permits (2000 -2008) 
 
 
+Surface Waters 
+++++++++++++++++++++++
+Lakes 
+Wetlands (Updateded '08) 
+Wetlands (Adopted 05) 
+FEMA Flood 2006 
+Drainage Basins 
+
+
+Conservation
++++++++++++++ 
+Champion Trees 
+Sinkholes 
+Paynes Prairie West 
+Alachua City Forever Lands 
+Strategic Ecosystems 
+
+
+Environmmental Hazards 
+++++++++++++++++++++++ 
+
+Pits and Spoil Areas 
+Excavations and Fill Sites 
+Excavations and Fill Soils 
+Radon Protection 
+
+
+Boundaries 
+++++++++++++++++ 
+County Boundary 
+Commissioner Districts 
+Zip Codes 
+TAZ2000
+Municipalities 
+Impact Fee Districts 
+Urban Reserves 
+Extra Territorial Reserves 
+
+Land Use 
+++++++++++++++++++
+Activity Centers 
+Special Area Studies 
+Rural Clusters 
+Urban Services Line 
+Urban  Clusters 
+Future Land Use 
+FLU Preservation Buffer 
+Zonning Districts 
+
+
+Census 
++++++++++++++++++++
+Census Tracts 
+Census Block Groups 
+Census Blocks 
+10 Years Master Plan Health and Human Services 
+
+
+Juvenile Offenders 2006-07 
+++++++++++++++++++++++++++++++++
+Offenders by Census Tracks
+Offenders by Census Blockgrps 
+Offenders by Census Blocks 
+
+
+Imagery 
++++++++++
+2007 Olique Aerials (5 in) 
+2005 Ortho Aerial (1 ft) 
+2000 Ortho Aerial (1 ft) 
+1996 Ortho Aerialoh
