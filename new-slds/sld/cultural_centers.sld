@@ -11,7 +11,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <UserStyle>
          <FeatureTypeStyle>
             <Name>alachua:cultural_centers</Name>
-            <Title>style for cultural_centers</Title>
+            <Title>Cultural_Centers</Title>
             <Abstract>styles for the alachua project</Abstract>
             <FeatureTypeName>alachua:cultural_centers</FeatureTypeName>
             <Rule>

@@ -109,6 +109,7 @@
       </LAYER>
 
       <LAYER name="Offenders_by_Census_Blocks" type="featureclass" id="Juvenile_Offenders_2006-07.census_blocks_juv_offenders" visible="false">
+      <!-- RP: census_blocks_juv_offenders.sld -->
 	<DATASET name="census_blocks_juv_offenders" type="polygon" workspace="shp_ws-3"/>
 	<GROUPRENDERER>
 	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
@@ -129,6 +130,7 @@
       </LAYER>
       
       <LAYER name="Offenders_by_Census_Blockgrps" type="featureclass" id="Juvenile_Offenders_2006-07.census_blockgroups_juv_offenders" visible="false">
+      <!-- RP: census_blockgroups_juv_offenders.sld -->
 	<DATASET name="census_blockgroups_juv_offenders" type="polygon" workspace="shp_ws-3"/>
 	<GROUPRENDERER>
 	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
@@ -152,6 +154,7 @@
       </LAYER>
       
       <LAYER name="Offenders_by_Census_Tracts" type="featureclass" id="Juvenile_Offenders_2006-07.census_tracts_juv_offenders" visible="false">
+      <!-- RP: census_tracts_juv_offenders.sld -->
 	<DATASET name="census_tracts_juv_offenders" type="polygon" workspace="shp_ws-3"/>
 	<GROUPRENDERER>
 	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
@@ -810,6 +813,7 @@
     --> 
       
       <LAYER type="featureclass" name="County_Boundary" visible="true" id="Boundaries.county">
+      <!-- RP: county.sld -->
         <DATASET name="county" type="polygon" workspace="shp_ws-3" />
 
 	<GROUPRENDERER>
@@ -864,6 +868,7 @@
       </LAYER>
 
       <LAYER type="featureclass" name="Excavation_and_Fill_Sites" visible="false" id="Environmental_Hazards.ACEPD_ExcavationandFillSites">
+      <!-- RP: ACEPD_ExcavationandFillSites.sld -->
         <DATASET name="ACEPD_ExcavationandFillSites" type="point" workspace="shp_ws-3" />
 
         <VALUEMAPRENDERER lookupfield="Loc_Acc">
@@ -872,7 +877,7 @@
           </EXACT>
 
           <EXACT value="Unverified Location" label="UNVERIFIED">
-            <SIMPLEMARKERSYMBOL transparency="1.0" color="51,51,51" width="7" type="circle" />
+            <SIMPLEMARKERSYMBOL transpacrency="1.0" color="51,51,51" width="7" type="circle" />
           </EXACT>
         </VALUEMAPRENDERER>
       </LAYER>
@@ -910,6 +915,7 @@
       </LAYER>
 
 	  <LAYER name="Paynes_Prairie_West" type="featureclass" id="Conservation.Paynes_Prairie_West" visible="false">
+	  <!-- RP: Paynes_Prairie_West.sld -->
 				<DATASET name="Paynes_Prairie_West" type="polygon" workspace="shp_ws-3"/>
 				<SIMPLERENDERER>
 					<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="150,170,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="209,255,115" fillinterval="6" filltransparency="0.8" filltype="solid" overlap="true"/>
@@ -939,6 +945,7 @@
       </LAYER>
 
 		<LAYER name="Drainage_Basins" type="featureclass" id="Surface_Waters.basins01" visible="false">
+		<!-- RP: basins01.sld -->
 				<DATASET name="basins01" type="polygon" workspace="shp_ws-3"/>
 				<SIMPLERENDERER>
 					<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,245" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="199,210,242" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
@@ -1004,6 +1011,7 @@
 
 
       <LAYER type="featureclass" name="All_Roads" visible="false" id="Roadways.e911_roads">
+      <!-- RP: e911_roads_merge.sld -->
         <DATASET name="e911_roads" type="line" workspace="shp_ws-3" />
 
 	   <GROUPRENDERER>
@@ -1028,6 +1036,7 @@
       </LAYER>
 
       <LAYER type="featureclass" name="Major_Roads" visible="true" id="Roadways.mjrds01">
+      <!-- RP: mjrds01.sld -->
         <DATASET name="majrds01" type="line" workspace="shp_ws-3" />
 
 	   <GROUPRENDERER>
@@ -1107,6 +1116,7 @@
       </LAYER>
 
  			<LAYER name="Future_Traffic_Corridor" type="featureclass" id="Roadways.corridors_connections_new_ft" visible="false">
+ 			<!-- RP: corridors_connections_new_ft.sld -->
 				<DATASET name="corridors_connections_new_ft" type="line" workspace="shp_ws-3"/>
 				<GROUPRENDERER>
 	  			<SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
@@ -1130,6 +1140,7 @@
 
 
      <LAYER type="featureclass" name="Scenic_Roads" visible="true" id="Roadways.scenic_roadways">
+     <!-- RP: scenic_roads.sld -->
         <DATASET name="scenic_roadways" type="line" workspace="shp_ws-3" />
 
 	<GROUPRENDERER>
@@ -1410,6 +1421,7 @@
       </LAYER>
 
          <LAYER type="featureclass" name="Parks" visible="false" id="Community_Landmarks.parks">
+         <!-- RP: parks.sld -->
             <DATASET name="parks" type="polygon" workspace="shp_ws-3" />
 
             <GROUPRENDERER>
@@ -1456,6 +1468,7 @@
 			</LAYER>
 
  			<LAYER name="Farmer_Markets" type="featureclass" id="Community_Landmarks.fmarkets" visible="false">
+ 			<!-- RP: fmarkets.sld -->
 			<DATASET name="fmarkets" type="point" workspace="shp_ws-3"/>
 
 				<GROUPRENDERER>
