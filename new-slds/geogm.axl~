@@ -1,0 +1,1981 @@
+		<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ARCXML SYSTEM "http://www.nikos.alachua.fl.us/website/arcxml.dtd">
+<!-- 
+    NOTE: All Layer Names and IDs should use an underscore in place of spaces.
+    This allows the WFS to work properly, as it fails if there is a space
+    in either the Name or ID. The GeoGM JavaScript aimsLayers, line 185
+    replaces the underscores with spaces when the ArcIMS service loads.
+    This creates pretty looking Names and IDs when using GeoGM.
+    (tim clark, feb 2, 2006)
+    
+    The geogm_feature axl is the same as the geogm image axl, except that it 
+    does not include the imagery and parcels.
+-->
+<ARCXML version="1.1">
+  <CONFIG>
+    <ENVIRONMENT>
+      <LOCALE country="US" language="en" variant="" />
+
+      <UIFONT color="0,0,0" name="SansSerif" size="12" style="regular" />
+
+      <SCREEN dpi="96" />
+    </ENVIRONMENT>
+
+    <MAP>
+      <PROPERTIES>
+        <ENVELOPE name="Initial_Extent" minx="2530698.475372441" miny="156634.0" maxx="2748596.5494250064" maxy="349858.0" />
+
+        <ENVELOPE name="Extent_Limit" minx="2530698.475372441" miny="156634.0" maxx="2748596.5494250064" maxy="349858.0" />
+
+        <FEATURECOORDSYS id="2238" />
+
+        <FILTERCOORDSYS id="2238" />
+
+        <MAPUNITS units="feet" />
+      </PROPERTIES>
+
+      <WORKSPACES>
+        <IMAGEWORKSPACE directory="C:\ArcIMS\Data\GeoGMData\imagery" name="jai_ws-0" />
+
+        <IMAGEWORKSPACE directory="C:\ArcIMS\Data\GeoGMData\DOQQ" name="jai_ws-1" />
+
+        <IMAGEWORKSPACE directory="E:\GeoGMData\DOQQ" name="jai_ws-2" />
+
+        <SHAPEWORKSPACE name="shp_ws-3" directory="C:\ArcIMS\Data\GeoGMData" />
+        
+        <SHAPEWORKSPACE name="shp_ws-0" directory="C:\ArcIMS\Data\PermitData" />
+
+
+        <SHAPEWORKSPACE name="shp_ws-1" directory="C:\ArcIMS\Data\GeoDRData" />
+        <SHAPEWORKSPACE name="shp_ws-2" directory="C:\ArcIMS\Data\GeoCEData" />
+
+      </WORKSPACES>
+
+      <LAYER type="image" name="1996_Ortho_Aerial" visible="false" id="Imagery.AC_Aerial_1996">
+        <DATASET name="AC_Aerial_1996.sid" type="image" workspace="jai_ws-0" />
+      </LAYER>
+
+      <LAYER type="image" name="2000_Ortho_Aerial_(1_ft)" visible="false" id="Imagery.Color2000">
+        <DATASET name="ImgCat_Color2000.dbf" type="image" workspace="jai_ws-0" />
+        <COORDSYS id="2238" />
+      </LAYER>
+
+
+      <LAYER type="image" name="2005_Ortho_Aerial_(1_ft)" visible="true" id="Imagery.Color2004">
+        <DATASET name="ACPA_NC_1ft.sid" type="image" workspace="jai_ws-0" />
+
+        <COORDSYS id="2238" />
+      </LAYER>
+
+      <LAYER type="featureclass" name="2007_Oblique_Aerials_(5_in)" id="Imagery.pictometry_extent" visible="false">
+        <DATASET name="oblique_imagery_extent" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.7" filltype="diagcross" fillcolor="255,0,255" boundarycaptype="round" boundarycolor="255,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="10 Year Master Plan Health and Human Services" type="featureclass" visible="false" id="Census.zipcode_cssdata">
+        <DATASET name="zipcode_cssdata" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <VALUEMAPRENDERER lookupfield="CLIENTS">
+            <EXACT value="0" label="0.0">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,255,255" fillinterval="6" filltransparency="0" filltype="solid" overlap="true" />
+            </EXACT>
+
+            <RANGE lower="0" upper="1.3" equality="upper" label="0.000001 - 1.300000">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,204,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+            </RANGE>
+
+            <RANGE lower="1.3" upper="3" equality="upper" label="1.300001 - 3.000000">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="242,160,241" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+            </RANGE>
+
+            <RANGE lower="3" upper="5.4" equality="upper" label="3.000001 - 5.400000">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="230,117,228" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+            </RANGE>
+
+            <RANGE lower="5.4" upper="7.9" equality="upper" label="5.400001 - 7.900000">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="214,71,212" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+            </RANGE>
+
+            <RANGE lower="7.9" upper="8.9" equality="upper" label="7.900001 - 8.900000">
+              <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="199,0,199" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+            </RANGE>
+          </VALUEMAPRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER name="Offenders_by_Census_Blocks" type="featureclass" id="Juvenile_Offenders_2006-07.census_blocks_juv_offenders" visible="false">
+	<DATASET name="census_blocks_juv_offenders" type="polygon" workspace="shp_ws-3"/>
+	<GROUPRENDERER>
+	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
+	    <EXACT value="0" label="0 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </EXACT>
+	    <RANGE lower="0" upper="2" equality="upper" label="1 - 2 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,211,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="2" upper="5" equality="upper" label="3 - 5 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="196,109,27" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="5" upper="12" equality="upper" label="6 - 12 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="110,110,110" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="107,6,1" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	  </VALUEMAPRENDERER>
+	</GROUPRENDERER>
+      </LAYER>
+      
+      <LAYER name="Offenders_by_Census_Blockgrps" type="featureclass" id="Juvenile_Offenders_2006-07.census_blockgroups_juv_offenders" visible="false">
+	<DATASET name="census_blockgroups_juv_offenders" type="polygon" workspace="shp_ws-3"/>
+	<GROUPRENDERER>
+	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
+	    <EXACT value="0" label="0 Offenses">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </EXACT>
+	    <RANGE lower="0" upper="5" equality="upper" label="1 - 5 Offenses">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,211,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="5" upper="10" equality="upper" label="6 - 10 Offenses">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="242,167,46" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="10" upper="14" equality="upper" label="11 - 14 Offenses">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="173,83,19" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="14" upper="31" equality="upper" label="15 - 31 Offenses">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="107,0,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	  </VALUEMAPRENDERER>
+	</GROUPRENDERER>
+      </LAYER>
+      
+      <LAYER name="Offenders_by_Census_Tracts" type="featureclass" id="Juvenile_Offenders_2006-07.census_tracts_juv_offenders" visible="false">
+	<DATASET name="census_tracts_juv_offenders" type="polygon" workspace="shp_ws-3"/>
+	<GROUPRENDERER>
+	  <VALUEMAPRENDERER lookupfield="OFFENDERS">
+	    <EXACT value="0" label="0 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </EXACT>
+	    <RANGE lower="0" upper="10" equality="upper" label="1 - 10 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,211,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="10" upper="20" equality="upper" label="11 - 20 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="242,167,46" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+						</RANGE>
+	    <RANGE lower="20" upper="40" equality="upper" label="21 - 40 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="173,83,19" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	    <RANGE lower="40" upper="58" equality="upper" label="41 - 58 offenders">
+	      <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="107,0,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+	    </RANGE>
+	  </VALUEMAPRENDERER>
+	</GROUPRENDERER>
+      </LAYER>
+      
+      
+      <LAYER type="featureclass" name="Census_Blocks" visible="false" id="Census.census_blocks_2000">
+        <DATASET name="census_blocks_2000" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="1" boundarycaptype="round" boundarycolor="102,204,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Census_Block_Groups" visible="false" id="Census.census_blockgroups_2000">
+        <DATASET name="census_blockgroups_2000" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="3" boundarycaptype="round" boundarycolor="51,153,153" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Census_Tracts" visible="false" id="Census.census_tracts_2000">
+        <DATASET name="census_tracts_2000" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="3" boundarycaptype="round" boundarycolor="0,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Zoning_Districts" visible="false" id="Land_Use.zoning">
+        <DATASET name="zoning" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER>
+            <VALUEMAPRENDERER lookupfield="CODE">
+              <EXACT value="A" label="(A) Agricultural">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="194,254,194" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="A-RB" label="(A-RB) Agricultural-Rural Business">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="218,102,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="AP" label="(AP) Administrative/Professional">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="167,167,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BA" label="(BA) Automotive Oriented Business">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,84,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BA-1" label="(BA-1) Automotive Oriented Business">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,84,0" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BH" label="(BH) Highway Oriented Business">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="217,154,254" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BP" label="(BP) Business/Professional">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="229,151,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BR" label="(BR) Business, Retail Sales/Service">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,114,177" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BR-1" label="(BR-1) Business, Retail Sales/Service">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,114,177" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="BW" label="(BW) Wholesale/Warehousing">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="121,221,244" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="C-1" label="(C-1) Conservation">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="0,198,63" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="HM" label="(HM) Hospital/Medical">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="177,114,254" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="MB" label="(MB) Business, Marine">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,126,126" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="ML" label="(ML) Light Industrial">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="188,188,188" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="MP" label="(MP) Manufacturing/Processing">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="101,118,204" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="MS" label="(MS) Manufacturing/Services">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="101,118,204" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="PD" label="(PD) Planned Development">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="0" fillcolor="204,245,122" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-1A" label="(R-1A) Single Family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,254,114" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-1AA" label="(R-1AA) Single Family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,254,114" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-1B" label="(R-1B) Single Family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,233,190" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-1C" label="(R-1C) Single Family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="244,142,73" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-2" label="(R-2) Multi-family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,210,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-2A" label="(R-2A) Multi-family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,210,127" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="R-3" label="(R-3) Multi-family Residential">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,166,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="RE" label="(RE) Residential-Estate">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,254,189" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="RE-1" label="(RE-1) Residential-Estate">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,254,186" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="RM" label="(RM) Manuf./ Mobile Home Park">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="231,189,254" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="RM-1" label="(RM-1) Travel Trailer Park">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="231,189,254" fillinterval="6" filltransparency="1" filltype="fdiagonal" overlap="true" />
+              </EXACT>
+
+              <EXACT value="RP" label="(RP) Residential/Professional">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,189,254" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="NOZ_NC" label="(NOZ_NC) No official zoning, not classified zoning">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="NOZ_PAD" label="(NOZ_PAD) No official zoning, pulled from Administrative Zoning">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+
+              <EXACT value="Unknown" label="Unknown">
+                <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="false" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,255,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+              </EXACT>
+            </VALUEMAPRENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER lower="1:1" upper="1:85000">
+            <SIMPLELABELRENDERER field="DESCRIPT">
+              <TEXTSYMBOL antialiasing="true" font="Times New Roman" fontstyle="italic" fontsize="11" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="FLU_Preservation_Buffer" visible="false" id="Land_Use.preservation_buffer">
+        <DATASET name="665_ft_pres_buff" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.7" fillcolor="255,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Future_Land_Use" visible="false" id="Land_Use.flu">
+        <DATASET name="future_land_use" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER>
+            <VALUEMAPRENDERER lookupfield="CODE">
+              <EXACT value="AUZ" label="Active Use Zone">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="51,51,0" />
+              </EXACT>
+
+              <EXACT value="COMM" label="Commercial">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,126,126" boundarycaptype="round" boundarycolor="254,126,126" />
+              </EXACT>
+
+              <EXACT value="CENC" label="Commercial Enclaves">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="255,190,190" boundarycaptype="round" boundarycolor="255,190,190" />
+              </EXACT>
+
+              <EXACT value="CONS" label="Conservation">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="0,198,63" boundarycaptype="round" boundarycolor="0,198,63" />
+              </EXACT>
+
+              <EXACT value="CSWMF" label="County Solid Waste Management Facility">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="114,254,222" boundarycaptype="round" boundarycolor="114,254,222" />
+              </EXACT>
+
+              <EXACT value="UPLD" label="Exceptional Upland Habitat">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="115,178,115" boundarycaptype="round" boundarycolor="115,178,115" />
+              </EXACT>
+
+              <EXACT value="HMK" label="Hammock">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="140,217,107" boundarycaptype="round" boundarycolor="140,217,107" />
+              </EXACT>
+
+              <EXACT value="IND" label="Heavy Industrial">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="147,147,147" boundarycaptype="round" boundarycolor="147,147,147" />
+              </EXACT>
+
+              <EXACT value="INDM" label="Industrial/Manufacturing">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="101,118,204" boundarycaptype="round" boundarycolor="101,118,204" />
+              </EXACT>
+
+              <EXACT value="INST" label="Institutional">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="114,254,222" boundarycaptype="round" boundarycolor="114,254,222" />
+              </EXACT>
+
+              <EXACT value="INDL" label="Light Industrial">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="188,188,188" boundarycaptype="round" boundarycolor="188,188,188" />
+              </EXACT>
+
+              <EXACT value="MU" label="Mixed Use">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="229,151,0" boundarycaptype="round" boundarycolor="229,151,0" />
+              </EXACT>
+
+              <EXACT value="MUCOMM" label="Mixed Use Commercial">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,114,177" boundarycaptype="round" boundarycolor="254,114,177" />
+              </EXACT>
+
+              <EXACT value="MUE" label="Mixed Use Employment">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="214,184,201" boundarycaptype="round" boundarycolor="214,184,201" />
+              </EXACT>
+              
+              <EXACT value="MULDR" label="Mixed Use Low Density Residential">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="214,214,114" boundarycaptype="round" boundarycolor="214,214,114" />
+              </EXACT>
+              
+              <EXACT value="MUMDR" label="Mixed Use Medium Density Residential">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="228,190,100" boundarycaptype="round" boundarycolor="228,190,100" />
+              </EXACT>
+
+              <EXACT value="MUMHDR" label="Mixed Use Medium High Density Residential">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="137,137,68" boundarycaptype="round" boundarycolor="137,137,68" />
+              </EXACT>
+              
+              <EXACT value="MUNCC" label="Mixed Use Neighborhood Convenience Center">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="138,112,69" boundarycaptype="round" boundarycolor="138,112,69" />
+              </EXACT>
+              
+              <EXACT value="OFFICE" label="Office">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,114,254" boundarycaptype="round" boundarycolor="254,114,254" />
+              </EXACT>
+
+              <EXACT value="OFF/BP" label="Office/Business Park">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="231,189,254" boundarycaptype="round" boundarycolor="231,189,254" />
+              </EXACT>
+
+              <EXACT value="OFF/M" label="Office/Medical">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="177,114,254" boundarycaptype="round" boundarycolor="177,114,254" />
+              </EXACT>
+
+              <EXACT value="OFF/R" label="Office/Residential">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,189,209" boundarycaptype="round" boundarycolor="254,189,209" />
+              </EXACT>
+
+              <EXACT value="OFF/R24" label="Office/Residential (2-4 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,189,254" boundarycaptype="round" boundarycolor="254,189,254" />
+              </EXACT>
+
+              <EXACT value="OFF/R48" label="Office/Residential (4-8 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="209,189,254" boundarycaptype="round" boundarycolor="209,189,254" />
+              </EXACT>
+
+              <EXACT value="OS" label="Open Space">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="204,244,121" boundarycaptype="round" boundarycolor="204,244,121" />
+              </EXACT>
+
+              <EXACT value="PRES" label="Preservation">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="1.0" fillcolor="121,244,161" boundarycaptype="round" boundarycolor="121,244,161" />
+              </EXACT>
+
+              <EXACT value="RECR" label="Recreation">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="151,229,0" boundarycaptype="round" boundarycolor="151,229,0" />
+              </EXACT>
+
+              <EXACT value="ESTATE" label="Residential Estate (0.5 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,254,189" boundarycaptype="round" boundarycolor="254,254,189" />
+              </EXACT>
+
+              <EXACT value="HIGH" label="Residential High Density (14-24 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,166,127" boundarycaptype="round" boundarycolor="254,166,127" />
+              </EXACT>
+
+              <EXACT value="LOW" label="Residential Low Density (1-4 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,254,114" boundarycaptype="round" boundarycolor="254,254,114" />
+              </EXACT>
+
+              <EXACT value="MED" label="Residential Medium Density (4-8 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,233,190" boundarycaptype="round" boundarycolor="254,233,190" />
+              </EXACT>
+
+              <EXACT value="MED-HI" label="Residential Medium High Density (8-14 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,210,127" boundarycaptype="round" boundarycolor="254,210,127" />
+              </EXACT>
+
+              <EXACT value="RES24" label="Residential Medium Low Density (2-4 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,254,100" boundarycaptype="round" boundarycolor="254,254,100" />
+              </EXACT>
+
+              <EXACT value="RES02" label="Residential Very Low Density (0-2 du/acre)">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,210,238" boundarycaptype="round" boundarycolor="254,210,238" />
+              </EXACT>
+
+              <EXACT value="R/AG" label="Rural/Agriculture">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="1.0" fillcolor="194,254,194" boundarycaptype="round" boundarycolor="194,254,194" />
+              </EXACT>
+
+              <EXACT value="RC" label="Rural Cluster">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="114,254,114" boundarycaptype="round" boundarycolor="114,254,114" />
+              </EXACT>
+
+              <EXACT value="RCAG" label="Rural Commercial Agriculture">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="255,190,190" boundarycaptype="round" boundarycolor="255,190,190" />
+              </EXACT>
+
+              <EXACT value="RCEC" label="Rural Community Employment Center">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="218,102,0" boundarycaptype="round" boundarycolor="218,102,0" />
+              </EXACT>
+
+              <EXACT value="REC" label="Rural Employment Center">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="203,168,102" boundarycaptype="round" boundarycolor="203,168,102" />
+              </EXACT>
+
+              <EXACT value="SC" label="Shopping Center">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="254,84,0" boundarycaptype="round" boundarycolor="254,84,0" />
+              </EXACT>
+
+              <EXACT value="TENT" label="Tourist/Entertainment">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="217,115,254" boundarycaptype="round" boundarycolor="217,115,254" />
+              </EXACT>
+
+              <EXACT value="UTILITY" label="Utility">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="167,167,0" boundarycaptype="round" boundarycolor="167,167,0" />
+              </EXACT>
+
+              <EXACT value="WHS/DIST" label="Warehouse/Distribution">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="121,221,244" boundarycaptype="round" boundarycolor="121,221,244" />
+              </EXACT>
+
+              <EXACT value="WTLD" label="Wetlands">
+                <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="101,186,204" boundarycaptype="round" boundarycolor="101,186,204" />
+              </EXACT>
+            </VALUEMAPRENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER lower="1:1" upper="1:85000">
+            <SIMPLELABELRENDERER field="FLUDEFIN">
+              <TEXTSYMBOL antialiasing="true" font="Times New Roman" fontstyle="italic" fontsize="11" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Urban_Cluster" visible="true" id="Land_Use.urban_cluster">
+        <DATASET name="urban_cluster" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="0,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Urban_Services_Line" visible="true" id="Land_Use.urban_services">
+        <DATASET name="urban_services_line" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+           <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="153,102,0" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Rural_Clusters" visible="false" id="Land_Use.rural_clusters">
+        <DATASET name="rural_clusters" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="255,153,0" />
+        </SIMPLERENDERER>
+      </LAYER>
+      
+      <LAYER type="featureclass" name="Special_Area_Studies" visible="false" id="Land_Use.special_area_studies">
+        <DATASET name="special_area_studies" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="3" boundarycaptype="round" boundarycolor="0,132,168" />
+        </SIMPLERENDERER>
+      </LAYER>
+      
+      <LAYER type="featureclass" name="Activity_Centers" visible="false" id="Land_Use.activity_center_boundaries">
+        <DATASET name="activity_center_boundaries" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="3" boundarycaptype="round" boundarycolor="104,104,104" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Extra_Territorial_Reserves" visible="false" id="Boundaries.extra_terr_reserves">
+        <DATASET name="extra_terr_reserves" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="NAME">
+          <EXACT value="ALACHUA" label="ALACHUA">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="115,255,223" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="214,255,241" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="ARCHER" label="ARCHER">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="223,115,255" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="241,214,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="GAINESVILLE" label="GAINESVILLE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="190,232,255" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="230,239,252" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="HAWTHORNE" label="HAWTHORNE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="215,194,158" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="252,229,154" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="HIGH SPRINGS" label="HIGH SPRINGS">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,211,127" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="255,235,186" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="LACROSSE" label="LACROSSE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="209,255,115" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="228,255,173" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="MICANOPY" label="MICANOPY">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,115,223" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="255,209,239" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="NEWBERRY" label="NEWBERRY">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="163,255,115" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="203,255,179" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="WALDO" label="WALDO">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,190,232" boundaryjointype="round" boundarytransparency="0" boundarytype="solid" boundarywidth="3" fillcolor="245,220,220" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Urban_Reserves" visible="false" id="Boundaries.urban_reserves">
+        <DATASET name="urban_reserves" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="NAME">
+          <EXACT value="ALACHUA" label="ALACHUA">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,132,168" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="158,255,221" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="ARCHER" label="ARCHER">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="197,0,255" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="210,174,230" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="GAINESVILLE" label="GAINESVILLE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,92,230" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="190,210,255" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="HAWTHORNE" label="HAWTHORNE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="115,76,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="214,185,126" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="HIGH SPRINGS" label="HIGH SPRINGS">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,170,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,211,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="LACROSSE" label="LACROSSE">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="76,230,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="209,255,115" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="MICANOPY" label="MICANOPY">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,0,197" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,190,232" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="NEWBERRY" label="NEWBERRY">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="56,168,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="163,255,115" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+
+          <EXACT value="WALDO" label="WALDO">
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="205,102,102" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="245,179,179" fillinterval="6" filltransparency="1" filltype="solid" overlap="true" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER name="Impact_Fee_Districts" id="Boundaries.impact_fee_districts" visible="false" type="featureclass">
+        <DATASET name="impact_fee_districts" type="polygon" workspace="shp_ws-3"/>
+        <GROUPRENDERER>
+               <VALUEMAPRENDERER lookupfield="DESCRIP">
+                  <EXACT value="District  1 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="0,0,0" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="255,170,0" />
+                  </EXACT>
+
+				  <EXACT value="District  1 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="0,0,0" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="230,153,0" />
+                  </EXACT>
+				  
+                  <EXACT value="District  2 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="76,230,0" />
+                  </EXACT>
+				  
+				  <EXACT value="District  2 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="68,204,0" />
+                  </EXACT>
+
+                  <EXACT value="District  3 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="0,197,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  3 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="0,176,230" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <VALUEMAPLABELRENDERER lookupfield="DESCRIP" labelfield="DESCRIP" linelabelposition="placeontop" howmanylabels="one_label_per_shape">
+                  <EXACT value="District  1 - Rural" label="1 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  1 - Urban" label="1 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+
+                  <EXACT value="District  2 - Rural" label="2 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+
+				  <EXACT value="District  2 - Urban" label="2 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+                  <EXACT value="District  3 - Rural" label="3 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  3 - Urban" label="3 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>				  
+               </VALUEMAPLABELRENDERER>
+            </GROUPRENDERER>
+      </LAYER>
+      
+      <LAYER type="featureclass" name="Municipalities" visible="true" id="Boundaries.municipalities">
+        <DATASET name="municipalities" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER>
+            <SIMPLERENDERER>
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="255,204,153" boundarywidth="1" boundarycaptype="round" boundarycolor="205,175,125" />
+            </SIMPLERENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER>
+            <SIMPLELABELRENDERER field="NAME">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="10" fontcolor="255,0,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+			<LAYER name="TAZ2000" type="featureclass" id="Boundaries.TAZ2000" visible="false">
+				<DATASET name="TAZ2000" type="polygon" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+            				<SIMPLEPOLYGONSYMBOL filltransparency="0.0" boundarytransparency="1.0" boundarywidth="2" boundarycolor="0,112,255" />
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+      <LAYER type="featureclass" name="Zip_Codes" visible="false" id="Boundaries.zipbnd01">
+        <DATASET name="zipbnd01" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL filltransparency="0.0" boundarytransparency="1.0" boundarywidth="3" boundarycolor="0,0,0" />
+          </SIMPLERENDERER>
+
+          <SIMPLELABELRENDERER field="ZIP">
+            <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="10" fontcolor="0,0,0" glowing="255,255,255" />
+          </SIMPLELABELRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Commissioner_Districts" visible="false" id="Boundaries.comm_districts">
+        <DATASET name="comm_districts" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <VALUEMAPRENDERER lookupfield="DISTRICT">
+            <EXACT value="1" label="1">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.5" fillcolor="255,255,0" boundarycolor="110,110,110" />
+            </EXACT>
+
+            <EXACT value="2" label="2">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.5" fillcolor="255,170,0" boundarycolor="110,110,110" />
+            </EXACT>
+
+            <EXACT value="3" label="3">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.5" fillcolor="0,214,0" boundarycolor="110,110,110" />
+            </EXACT>
+
+            <EXACT value="4" label="4">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.5" fillcolor="0,178,173" boundarycolor="110,110,110" />
+            </EXACT>
+
+            <EXACT value="5" label="5">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.5" fillcolor="255,85,0" boundarycolor="110,110,110" />
+            </EXACT>
+          </VALUEMAPRENDERER>
+
+          <SCALEDEPENDENTRENDERER>
+            <SIMPLELABELRENDERER field="DISTRICT">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="20" fontcolor="0,0,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+   <!--   
+      <LAYER type="featureclass" name="County_Boundary" visible="true" id="Boundaries.cntbnd01">
+        <DATASET name="cntbnd01" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL filltransparency="0.0" boundarytransparency="1.0" boundarywidth="2" boundarycolor="0,0,0" />
+        </SIMPLERENDERER>
+      </LAYER>
+    --> 
+      
+      <LAYER type="featureclass" name="County_Boundary" visible="true" id="Boundaries.county">
+        <DATASET name="county" type="polygon" workspace="shp_ws-3" />
+
+	<GROUPRENDERER>
+
+	  <SIMPLERENDERER>
+	    <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="4" boundarycaptype="round" boundarycolor="255,255,255" />
+	  </SIMPLERENDERER>
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL filltransparency="0.0" boundarytransparency="1.0" boundarywidth="2" boundarycolor="128,128,128" />
+        </SIMPLERENDERER>
+
+            <VALUEMAPLABELRENDERER lookupfield="LABEL" labelfield="LABEL">
+	      <EXACT value="ALACHUA COUNTY" label="">
+		<TEXTSYMBOL fontcolor="0,0,0" fontsize="0" font="Arial" />
+	      </EXACT>
+	      <OTHER>
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="12" fontcolor="190,190,190" />
+	      </OTHER>
+            </VALUEMAPLABELRENDERER>
+
+	</GROUPRENDERER>
+
+      </LAYER>
+	
+      <LAYER type="featureclass" name="Radon_Protection" visible="false" id="Environmental_Hazards.radprt">
+        <DATASET name="radprt" type="polygon" workspace="shp_ws-3" />
+
+        <SCALEDEPENDENTRENDERER>
+          <VALUEMAPRENDERER lookupfield="DESCRIPT">
+            <EXACT value="ACTIVE RADON CONTROLS RECOMMENDED" label="ACTIVE RADON ">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" filltype="gray" fillcolor="255,51,51" boundarycaptype="round" boundarycolor="255,51,51" />
+            </EXACT>
+
+            <EXACT value="PASSIVE RADON CONTROLS RECOMMENDED" label="PASSIVE RADON">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" filltype="gray" fillcolor="255,255,0" boundarycaptype="round" boundarycolor="255,255,0" />
+            </EXACT>
+
+            <EXACT value="RADON CONTROLS GENERALLY UNNECESSARY" label="NO RADON ">
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" filltype="gray" fillcolor="0,153,0" boundarycaptype="round" boundarycolor="0,153,0" />
+            </EXACT>
+          </VALUEMAPRENDERER>
+        </SCALEDEPENDENTRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Excavation_and_Fill_Soils" visible="false" id="Environmental_Hazards.SSURGO_ExcavationandFill">
+        <DATASET name="SSURGO_ExcavationandFill" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL fillcolor="255,102,0" boundarycaptype="round" boundarycolor="0,0,0" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Excavation_and_Fill_Sites" visible="false" id="Environmental_Hazards.ACEPD_ExcavationandFillSites">
+        <DATASET name="ACEPD_ExcavationandFillSites" type="point" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="Loc_Acc">
+          <EXACT value="Verified Location" label="VERIFIED">
+            <SIMPLEMARKERSYMBOL transparency="1.0" color="255,51,0" width="7" type="circle" />
+          </EXACT>
+
+          <EXACT value="Unverified Location" label="UNVERIFIED">
+            <SIMPLEMARKERSYMBOL transparency="1.0" color="51,51,51" width="7" type="circle" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Pits_and_Spoil_Areas" visible="false" id="Environmental_Hazards.SSURGO_BorrowPits_SpoilAreas">
+        <DATASET name="SSURGO_BorrowPits_SpoilAreas" type="point" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="51,51,255" width="7" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Strategic_Ecosystems" visible="false" id="Conservation.strategic_ecosystems">
+        <DATASET name="strategic_ecosystems" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL filltransparency="1.0" fillcolor="0,102,0" boundarytransparency="0.0" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:15000">
+            <SIMPLELABELRENDERER field="FNAITYPE">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="10" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Alachua_Cty._Forever_Lands" visible="false" id="Conservation.acf_lands">
+        <DATASET name="acf_lands" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="1.0" fillcolor="153,102,51" filltype="fdiagonal" fillinterval="2" boundarywidth="1" boundarycaptype="round" boundarycolor="153,102,51" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+	  <LAYER name="Paynes_Prairie_West" type="featureclass" id="Conservation.Paynes_Prairie_West" visible="false">
+				<DATASET name="Paynes_Prairie_West" type="polygon" workspace="shp_ws-3"/>
+				<SIMPLERENDERER>
+					<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="150,170,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="209,255,115" fillinterval="6" filltransparency="0.8" filltype="solid" overlap="true"/>
+				</SIMPLERENDERER>
+		</LAYER>
+			
+      <LAYER type="featureclass" name="Sinkholes" visible="false" id="Conservation.SSURGO_Sinkholes">
+        <DATASET name="SSURGO_Sinkholes" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="33" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,255,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+          </SIMPLERENDERER>
+
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="79" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+          </SIMPLERENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Champion_Trees" visible="false" id="Conservation.big_trees">
+        <DATASET name="big_trees" type="point" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="0,0,0" width="7" type="circle" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+		<LAYER name="Drainage_Basins" type="featureclass" id="Surface_Waters.basins01" visible="false">
+				<DATASET name="basins01" type="polygon" workspace="shp_ws-3"/>
+				<SIMPLERENDERER>
+					<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,245" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="199,210,242" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+				</SIMPLERENDERER>
+		</LAYER>
+
+      <LAYER type="featureclass" name="FEMA_Flood_2006" visible="false" id="Surface_Waters.fema06">
+        <DATASET name="fema06" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="FLOODWAY">
+          <EXACT value="IN;OUT" label="AREA LOCATED WITHIN SPECIAL FLOOD HAZARD AREA">
+            <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="0.6" boundarycaptype="round" fillcolor="255,51,153" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Wetlands (Adopted '05)" visible="false" id="Surface_Waters.wetlands">
+        <DATASET name="wetlands" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="1.0" filltype="lightgray" fillcolor="0,102,255" boundarycaptype="round" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+       <LAYER type="featureclass" name="Wetlands (Updated '08)" visible="false" id="Surface_Waters.wetlands_2008">
+        <DATASET name="wetlands_2008" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="0.0" filltransparency="1.0" filltype="lightgray" fillcolor="0,255,255" boundarycaptype="round" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+     <LAYER type="featureclass" name="Lakes" visible="true" id="Surface_Waters.lakes">
+        <DATASET name="lakes" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL transparency="0.6" fillcolor="96,213,225" boundary="false" />
+        </SIMPLERENDERER>
+      </LAYER>
+      
+            <LAYER name="Septic_System_Permits_(2000-2008)" id="New_Development.septic_system_permits_pts" visible="false" type="featureclass">
+        <DATASET name="septic_system_permits_pts" type="point" workspace="shp_ws-0" />
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL antialiasing="true" color="255,0,0" overlap="true" transparency="1.0" usecentroid="true" width="6" type="circle" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Certificates_of_Occupancy_(1994-2008)" id="New_Development.certificates_of_occupancy_pts" visible="false" type="featureclass">
+        <DATASET name="certificates_of_occupancy_pts" type="point" workspace="shp_ws-0" />
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL antialiasing="true" color="0,102,255" overlap="true" transparency="1.0" usecentroid="true" width="6" type="circle" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Approved_Developments_2008-Present" visible="false" id="New_Development.development_review_pts">
+        <DATASET name="development_review_pts" type="point" workspace="shp_ws-1" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="255,255,0" outline="255,102,0"  width="7" type="circle" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+
+
+      <LAYER type="featureclass" name="All_Roads" visible="false" id="Roadways.e911_roads">
+        <DATASET name="e911_roads" type="line" workspace="shp_ws-3" />
+
+	   <GROUPRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:70000">
+    		    <SIMPLERENDERER>
+				<SIMPLELINESYMBOL width="3" captype="round" color="160,160,160" />
+        		</SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:70000">
+    		    <SIMPLERENDERER>
+				<SIMPLELINESYMBOL width="1" captype="round" color="208,208,208" />
+        		</SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+
+	  <SCALEDEPENDENTRENDERER lower="1:70001" upper="1:9223372036854775807">
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL width="1" captype="round" color="160,160,160" />
+        </SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+
+	   </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Major_Roads" visible="true" id="Roadways.mjrds01">
+        <DATASET name="majrds01" type="line" workspace="shp_ws-3" />
+
+	   <GROUPRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+               <VALUEMAPRENDERER lookupfield="JURIS">
+                  <EXACT value="County" label="Roads within County">
+				<SIMPLELINESYMBOL width="4" captype="round" color="128,128,128" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+	  </SCALEDEPENDENTRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+               <VALUEMAPRENDERER lookupfield="JURIS">
+                  <EXACT value="County" label="Roads within County">
+	      		<SIMPLELINESYMBOL width="2" captype="round" color="255,150,150" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+	  </SCALEDEPENDENTRENDERER>
+
+	  <SCALEDEPENDENTRENDERER lower="1:100000" upper="1:9223372036854775807">
+               <VALUEMAPRENDERER lookupfield="JURIS">
+                  <EXACT value="County" label="Roads within County">
+	      		<SIMPLELINESYMBOL width="2" captype="round" color="255,100,100" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+	  </SCALEDEPENDENTRENDERER>
+
+        <VALUEMAPRENDERER lookupfield="JURIS">
+                  <EXACT value="Non-County" label="Roads out of County">
+                     <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="255,190,190" width="1" />
+                  </EXACT>
+         </VALUEMAPRENDERER>
+
+
+       <VALUEMAPRENDERER lookupfield="CLASS">
+                  <EXACT value="Interstate" label="Interstate">
+	                <SIMPLELINESYMBOL width="5" captype="round" color="128,128,128" />
+                  </EXACT>
+         </VALUEMAPRENDERER>
+ 
+       <VALUEMAPRENDERER lookupfield="CLASS">
+                  <EXACT value="Interstate" label="PLABEL">
+	                <SIMPLELINESYMBOL width="3" captype="round" color="255,170,0" />
+                  </EXACT>
+         </VALUEMAPRENDERER>
+
+	  <VALUEMAPLABELRENDERER lookupfield="CLASS" labelfield="PLABEL" linelabelposition="placeontop">
+	    <EXACT value="Interstate" label="I">
+	      <SHIELDSYMBOL font="Arial" fontstyle="regular" fontsize="10" fontcolor="255,255,255" type="interstate" minsize="2" />
+	    </EXACT>
+        </VALUEMAPLABELRENDERER>
+
+
+
+         <SCALEDEPENDENTRENDERER upper="1:100000">
+                  <SIMPLELABELRENDERER field="LOCALNAME" linelabelposition="placeabove" labelbufferratio="0.5">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontsize="11" fontcolor="220,0,0" outline="255,255,255"/>
+                  </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+	   </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Collector_Roads" visible="false" id="Roadways.collector_roads">
+        <DATASET name="collector_roads" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL width="1" captype="round" color="0,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="County_Maintained_Roads" visible="false" id="Roadways.acpwd_maint_04">
+        <DATASET name="ACPWD_MAINT_04" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL width="1" captype="round" color="255,0,255" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+ 			<LAYER name="Future_Traffic_Corridor" type="featureclass" id="Roadways.corridors_connections_new_ft" visible="false">
+				<DATASET name="corridors_connections_new_ft" type="line" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+	  			<SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,0,0" jointype="round" transparency="1" overlap="true" type="solid" width="5"/>
+					</SIMPLERENDERER>
+				</SCALEDEPENDENTRENDERER>
+
+	  			<SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="255,255,0" jointype="round" transparency="1" overlap="true" type="solid" width="3"/>
+					</SIMPLERENDERER>
+				</SCALEDEPENDENTRENDERER>
+	  			<SCALEDEPENDENTRENDERER lower="1:100000">
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="208,208,0" jointype="round" transparency="1" overlap="true" type="solid" width="3"/>
+					</SIMPLERENDERER>
+				</SCALEDEPENDENTRENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+
+     <LAYER type="featureclass" name="Scenic_Roads" visible="true" id="Roadways.scenic_roadways">
+        <DATASET name="scenic_roadways" type="line" workspace="shp_ws-3" />
+
+	<GROUPRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+	    <SIMPLERENDERER>
+	      <SIMPLELINESYMBOL width="4" captype="round" color="100,150,100" />
+	    </SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+	    <SIMPLERENDERER>
+	      <SIMPLELINESYMBOL width="2" captype="round" color="150,225,150" />
+	    </SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+	  <SCALEDEPENDENTRENDERER lower="1:100000" upper="1:9223372036854775807">
+	    <SIMPLERENDERER>
+	      <SIMPLELINESYMBOL width="2" captype="round" color="51,204,0" />
+	    </SIMPLERENDERER>
+	  </SCALEDEPENDENTRENDERER>
+         <SCALEDEPENDENTRENDERER upper="1:100000">
+                  <SIMPLELABELRENDERER field="NAME" linelabelposition="placeabove" labelbufferratio="0.5">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontsize="11" fontcolor="51,102,51" outline="255,255,255"/>
+                  </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+
+	   </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Elementary_School_Zones" visible="false" id="Schools_and_School_Zones.School_Zones_Elementary">
+        <DATASET name="school_zones_elementary" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="SCHOOLCODE">
+          <EXACT value="010021" label="Duval Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="214,97,18" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010031" label="Finley Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="222,97,0" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010041" label="Foster Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="222,181,0" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010071" label="Lake Forest Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="247,237,84" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010091" label="Littlewood Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="255,149,99" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010101" label="Metcalfe Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="168,168,0" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010111" label="Williams Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="225,227,86" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010161" label="Alachua Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="225,86,227" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010171" label="Archer Community School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="86,225,227" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010281" label="Shell Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="250,212,165" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010291" label="Waldo Community School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="232,210,186" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010311" label="Terwilliger Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="240,196,127" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010321" label="Idylwild Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="127,240,196" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010331" label="Glen Springs Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="255,214,48" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010341" label="Rawlings Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="158,150,112" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010472" label="High Springs Elementary and Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="242,245,162" filltransparency="0.5"  boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010482" label="Hidden Oak Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="254,211,189" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010501" label="Wiles Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="201,149,75" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010510" label="Chiles Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="221,227,48" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010531" label="Newberry Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="247,233,195" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010541" label="Norton Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="204,107,54" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010561" label="Talbot Elementary School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="162,242,245" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+			<LAYER name="Elementary_School_CSA" type="featureclass" id="Schools_and_School_Zones.CSA_Elemschool" visible="false">
+				<DATASET name="CSA_Elemschool" type="polygon" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="0" filltype="solid" overlap="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="255,85,0" jointype="round" transparency="1" overlap="true" type="solid" width="2"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+      <LAYER type="featureclass" name="Elementary_Schools" visible="false" id="Schools_and_School_Zones.schools_elementary">
+        <DATASET name="schools_elementary" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="44" angle="0" antialiasing="true" font="ESRI Environmental &amp; Icons" fontcolor="0,92,230" fontsize="35" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:125000">
+            <SIMPLELABELRENDERER field="FACILITY">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="8" fontcolor="0,92,230" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Middle_School_Zones" visible="false" id="Schools_and_School_Zones.School_Zones_Middle">
+        <DATASET name="school_zones_middle" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="SCHOOLCODE">
+          <EXACT value="010112" label="Lincoln Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="75,229,0" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010121" label="Bishop Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="0,254,111" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010141" label="Westwood Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="171,240,22" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010201" label="Hawthorne Jr/Sr High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="211,255,190" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010221" label="Mebane Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="215,245,157" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010472" label="High Springs Elementary and Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="211,242,212" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010481" label="Fort Clarke Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="0,229,168" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010502" label="Kanapaha Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="152,224,103" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010591" label="Oak View Middle School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="169,250,152" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+ 			<LAYER name="Middle_School_CSA" type="featureclass" id="Schools_and_School_Zones.CSA_Middleschool" visible="false">
+				<DATASET name="CSA_Middleschool" type="polygon" workspace="shp_ws-3"/>
+				<COORDSYS id="2238"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="0" filltype="solid" overlap="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="38,115,0" jointype="round" transparency="1" overlap="true" type="solid" width="2"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+     <LAYER type="featureclass" name="Middle_Schools" visible="false" id="Schools_and_School_Zones.schools_middle">
+        <DATASET name="schools_middle" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="44" angle="0" antialiasing="true" font="ESRI Environmental &amp; Icons" fontcolor="255,85,0" fontsize="35" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:125000">
+            <SIMPLELABELRENDERER field="FACILITY">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="8" fontcolor="255,85,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="High_School_Zones" visible="false" id="Schools_and_School_Zones.School_Zones_High">
+        <DATASET name="school_zones_high" type="polygon" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="SCHOOLCODE">
+          <EXACT value="010151" label="Gainesville High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="0,111,254" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010201" label="Hawthorne Jr/Sr High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="150,255,255" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010261" label="Newberry High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="212,225,255" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010271" label="Santa Fe High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="164,230,245" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010421" label="Eastside High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="0,229,229" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+
+          <EXACT value="010431" label="Buchholz High School">
+            <SIMPLEPOLYGONSYMBOL fillcolor="0,168,229" filltransparency="0.5" boundary="true" boundarycolor="0,0,0" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+			<LAYER name="High_School_CSA" type="featureclass" id="Schools_and_School_Zones.CSA_Highschool" visible="false">
+				<DATASET name="CSA_Highschool" type="polygon" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="0,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="254,255,255" fillinterval="6" filltransparency="0" filltype="solid" overlap="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,77,168" jointype="round" transparency="1" overlap="true" type="solid" width="2"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+      <LAYER type="featureclass" name="High_Schools" visible="false" id="Schools_and_School_Zones.schools_high">
+        <DATASET name="schools_high" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="44" angle="0" antialiasing="true" font="ESRI Environmental &amp; Icons" fontcolor="38,115,0" fontsize="35" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:125000">
+            <SIMPLELABELRENDERER field="FACILITY">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="8" fontcolor="38,115,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+         <LAYER type="featureclass" name="Parks" visible="false" id="Community_Landmarks.parks">
+            <DATASET name="parks" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL filltransparency="1.0" fillcolor="108,190,35" boundarycolor="80,140,26" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:50000">
+                  <SIMPLELABELRENDERER field="NAME">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="12" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+			<LAYER name="Bookstores" type="featureclass" id="Community_Landmarks.bookstores" visible="false">
+				<DATASET name="bookstores" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="34" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="178,178,178" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="41" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+ 			<LAYER name="Libraries" type="featureclass" id="Community_Landmarks.libraries" visible="false">
+				<DATASET name="libraries" type="point" workspace="shp_ws-3"/>
+
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="198" angle="0" antialiasing="false" font="ESRI Transportation &amp; Civic" fontcolor="255,255,0" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="99" angle="0" antialiasing="false" font="ESRI Transportation &amp; Civic" fontcolor="0,56,147" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+				<EXTENSION type="Extract">
+					<EXTRACTPARAMS clip="true">
+						<OUTPUTFILE file="libraries"/>
+					</EXTRACTPARAMS>
+				</EXTENSION>
+			</LAYER>
+
+ 			<LAYER name="Farmer_Markets" type="featureclass" id="Community_Landmarks.fmarkets" visible="false">
+			<DATASET name="fmarkets" type="point" workspace="shp_ws-3"/>
+
+				<GROUPRENDERER>
+			            <SIMPLERENDERER>
+   			            <SIMPLEMARKERSYMBOL transparency="1.0" color="0,100,50" width="9" />
+           				 </SIMPLERENDERER>
+			            <SIMPLERENDERER>
+   			            <SIMPLEMARKERSYMBOL transparency="1.0" color="0,255,0" width="7" />
+           				 </SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+			<LAYER name="Hotels" type="featureclass" id="Community_Landmarks.Hotels" visible="false">
+				<DATASET name="Hotels" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="178" angle="0" antialiasing="false" font="ESRI Hazardous Materials" fontcolor="255,255,255" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="182" angle="0" antialiasing="false" font="ESRI Hazardous Materials" fontcolor="0,0,0" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+
+    <LAYER type="featureclass" name="Fire_Stations" id="Community_Landmarks.fire_stations" visible="false">
+        <DATASET name="fire_stations" type="point" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="TYPE">
+          <EXACT value="Fire" label="Fire Station">
+            <TRUETYPEMARKERSYMBOL character="254" angle="0" antialiasing="false" font="ESRI Cartography" fontcolor="255,0,0" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </EXACT>
+
+          <EXACT value="Medic" label="Medic Station">
+            <TRUETYPEMARKERSYMBOL character="254" angle="0" antialiasing="false" font="ESRI Cartography" fontcolor="0,0,255" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </EXACT>
+
+          <EXACT value="Fire/Medic" label="Fire and Medic Station">
+            <TRUETYPEMARKERSYMBOL character="254" angle="0" antialiasing="false" font="ESRI Cartography" fontcolor="0,0,0" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Hospitals" id="Community_Landmarks.hospit" visible="false">
+        <DATASET name="hospit" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="174" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="255,255,255" fontsize="17" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+          </SIMPLERENDERER>
+
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="118" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,0,255" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+          </SIMPLERENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+<!-- 
+     <LAYER type="featureclass" name="Points_of_Interest" id="Community_Landmarks.points_of_interest" visible="false">
+        <DATASET name="points_of_interest" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <VALUEMAPRENDERER lookupfield="TYPE">
+            <EXACT value="AIRPORT" label="AIRPORT">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="ANIMAL SANCTUARY" label="ANIMAL SANCTUARY">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="HISTORIC FACILITY" label="HISTORIC FACILITY">
+              <TRUETYPEMARKERSYMBOL character="33" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="LIBRARY" label="LIBRARY">
+              <TRUETYPEMARKERSYMBOL character="198" angle="0" antialiasing="true" font="ESRI Transportation &amp; Civic" fontcolor="254,255,255" fontsize="19" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="MUSEUM" label="MUSEUM">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="255,0,197" fontsize="24" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="NATURE PARK" label="NATURE PARK">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="RECREATION PARK" label="RECREATION PARK">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="SHOPPING" label="SHOPPING">
+              <TRUETYPEMARKERSYMBOL character="34" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="SPORTS FACILITY" label="SPORTS FACILITY">
+              <TRUETYPEMARKERSYMBOL character="33" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="THEATRE" label="THEATRE">
+              <TRUETYPEMARKERSYMBOL character="190" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="254,255,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+          </VALUEMAPRENDERER>
+
+          <VALUEMAPRENDERER lookupfield="TYPE">
+            <EXACT value="AIRPORT" label="AIRPORT">
+              <TRUETYPEMARKERSYMBOL character="90" angle="0" antialiasing="true" font="ESRI Business" fontcolor="0,38,115" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="ANIMAL SANCTUARY" label="ANIMAL SANCTUARY">
+              <TRUETYPEMARKERSYMBOL character="81" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="230,152,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="COLLEGE" label="COLLEGE">
+              <TRUETYPEMARKERSYMBOL character="110" angle="5" antialiasing="true" font="ESRI Default Marker" fontcolor="0,92,230" fontsize="22" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+            </EXACT>
+
+            <EXACT value="GOLF COURSE" label="GOLF COURSE">
+              <TRUETYPEMARKERSYMBOL character="115" angle="0" antialiasing="true" font="ESRI Crime Analysis" fontcolor="0,166,57" fontsize="25" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" glowing="255,255,255" />
+            </EXACT>
+
+            <EXACT value="HISTORIC FACILITY" label="HISTORIC FACILITY">
+              <TRUETYPEMARKERSYMBOL character="90" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="226,0,127" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="LIBRARY" label="LIBRARY">
+              <TRUETYPEMARKERSYMBOL character="99" angle="0" antialiasing="true" font="ESRI Transportation &amp; Civic" fontcolor="0,56,147" fontsize="21" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="MUSEUM" label="MUSEUM">
+              <TRUETYPEMARKERSYMBOL character="59" angle="0" antialiasing="true" font="ESRI Business" fontcolor="254,255,255" fontsize="19" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="NATURE PARK" label="NATURE PARK">
+              <TRUETYPEMARKERSYMBOL character="207" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="38,115,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="RECREATION PARK" label="RECREATION PARK">
+              <TRUETYPEMARKERSYMBOL character="53" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="0,132,168" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="SHOPPING" label="SHOPPING">
+              <TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Business" fontcolor="168,112,0" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="SPORTS FACILITY" label="SPORTS FACILITY">
+              <TRUETYPEMARKERSYMBOL character="80" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,168,132" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+
+            <EXACT value="THEATRE" label="THEATRE">
+              <TRUETYPEMARKERSYMBOL character="175" angle="0" antialiasing="true" font="ESRI US Forestry 1" fontcolor="169,0,230" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+            </EXACT>
+          </VALUEMAPRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+-->
+			<LAYER name="Veteran_Memorials" type="featureclass" id="Community_Landmarks.veteran_memorial_pts" visible="false">
+				<DATASET name="veteran_memorial_pts" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="255,0,0" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="128,128,128" fontsize="18" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+			</LAYER>
+ 
+     <LAYER type="featureclass" name="Historic_Structures" id="Community_Landmarks.historic_structures" visible="false">
+        <DATASET name="historic_structures" type="point" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="201,0,201" width="12" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Historic_Markers" id="Community_Landmarks.historic_markers" visible="false">
+        <DATASET name="historic_markers" type="point" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="204,102,0" width="12" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+			<LAYER name="Correctional_Facilities" type="featureclass" id="Community_Landmarks.gc_correctional_may0801" visible="false">
+				<DATASET name="gc_correctional_may0801" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="34" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="225,225,225" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="104" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+				<QUERY subfields="#SHAPE# NAME ADDRESS CITY ZIPCODE COUNTY PHONE CONTACT TITLE TYPE YR_BUILT SOURCE DESCRIPT UPDATE_DAY FGDLAQDATE"/>
+			</LAYER>
+
+			<LAYER name="Religious_Centers" type="featureclass" id="Community_Landmarks.gc_religion_sep0501" visible="false">
+				<DATASET name="gc_religion_sep0501" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="33" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="178,178,178" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="40" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+				<QUERY subfields="#SHAPE# NAME ADDRESS CITY ZIPCODE PHONE DENOM TYPE SERVICE DESCRIPT UPDATE_DAY FGDLAQDATE"/>
+
+			</LAYER>
+
+			<LAYER name="Cultural_Centers" type="featureclass" id="Community_Landmarks.gc_culturecenter_feb0801" visible="false">
+				<DATASET name="gc_culturecenter_feb0801" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="33" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="190,232,255" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="46" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="16" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+				<QUERY subfields="#SHAPE# NAME ADDRESS CITY ZIPCODE PHONE COUNTY WEBSITE TYPE DESCRIPT FLAG UPDATE_DAY FGDLAQDATE"/>
+			</LAYER>
+			
+			<LAYER type="featureclass" name="Assisted_Food_Services" id="Community_Landmarks.food_banks" visible="false">
+		        <DATASET name="food_banks" type="point" workspace="shp_ws-3" />
+		        <SIMPLERENDERER>
+		          <SIMPLEMARKERSYMBOL transparency="1.0" color="201,0,0" width="6" />
+		        </SIMPLERENDERER>
+		      </LAYER>
+			  
+	<LAYER name="Substandard_Housing_(STR)" type="featureclass" id="Housing.substandard_housing_plss" visible="false">
+		<DATASET name="substandard_housing_plss" type="polygon" workspace="shp_ws-2"/>
+				<VALUEMAPRENDERER lookupfield="PARC_SUB">
+					<EXACT value="0" label="0">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="227,149,41" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="237,234,218" fillinterval="6" filltransparency="0" filltype="solid" overlap="true"/>
+					</EXACT>
+					<RANGE lower="0" upper="20" equality="upper" label="1 - 20">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="227,149,41" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,255,128" fillinterval="6" filltransparency="0.6" filltype="solid" overlap="true"/>
+					</RANGE>
+					<RANGE lower="20" upper="40" equality="upper" label="21 - 40">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="227,149,41" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="250,209,85" fillinterval="6" filltransparency="0.6" filltype="solid" overlap="true"/>
+					</RANGE>
+					<RANGE lower="40" upper="100" equality="upper" label="41 - 100">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="227,149,41" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="201,130,48" fillinterval="6" filltransparency="0.6" filltype="solid" overlap="true"/>
+					</RANGE>
+					<RANGE lower="100" upper="205" equality="upper" label="101 - 205">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="227,149,41" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="107,0,0" fillinterval="6" filltransparency="0.6" filltype="solid" overlap="true"/>
+					</RANGE>
+				</VALUEMAPRENDERER>
+	</LAYER>
+
+	
+	<LAYER name="Substandard_Housing_(Parcels)" id="Housing.substandard_housing" visible="false" type="featureclass">
+		<DATASET name="substandard_housing" type="polygon" workspace="shp_ws-2"/>
+				<VALUEMAPRENDERER lookupfield="DESCRIPT">
+					<EXACT value="Substandard High" label="Substandard High">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="135,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="160,0,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+					</EXACT>
+					<EXACT value="Substandard Med" label="Substandard Med">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="200,0,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="230,0,0" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+					</EXACT>
+					<EXACT value="Substandard Low" label="Substandard Low">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="225,107,107" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,127,127" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+					</EXACT>
+					<EXACT value="Suspected" label="Suspected">
+						<SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="225,170,170" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="1" fillcolor="255,190,190" fillinterval="6" filltransparency="1" filltype="solid" overlap="true"/>
+					</EXACT>
+				</VALUEMAPRENDERER>
+			</LAYER>
+
+			<LAYER name="Assisted_Rental_Housing" type="featureclass" id="Housing.gc_assisted_housing01" visible="false">
+				<DATASET name="gc_assisted_housing01" type="point" workspace="shp_ws-3"/>
+				<GROUPRENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="34" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="255,235,175" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+					<SIMPLERENDERER>
+						<TRUETYPEMARKERSYMBOL character="41" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="0,0,0" fontsize="14" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true"/>
+					</SIMPLERENDERER>
+				</GROUPRENDERER>
+				<QUERY subfields="#SHAPE# DEVELOPMEN STREET_ADD CITY ZIP_CODE COUNTY TOTAL_UNIT ASSISTED_U OCCUPANCY_ HOUSING_PR POPULATION DESCRIPT"/>
+			</LAYER>
+			
+			<LAYER type="featureclass" name="SHIP_Data_(2002,2007)" id="Housing.Ship_beneficiaries_pts" visible="false">
+		        <DATASET name="Ship_beneficiaries_pts" type="point" workspace="shp_ws-3" />
+		        <SIMPLERENDERER>
+		          <SIMPLEMARKERSYMBOL transparency="1.0" color="0,0,201" width="6" />
+		        </SIMPLERENDERER>
+		      </LAYER>
+
+<!--
+      <LAYER name="Braids" type="featureclass" id="Draft_Green_Pathways.braids" visible="false">
+        <DATASET name="braided_roads" type="line" workspace="shp_ws-3" />
+
+        <VALUEMAPRENDERER lookupfield="BRAID">
+          <EXACT value="Alachua Braid" label="Alachua Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="161,152,77" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Archer Braid" label="Archer Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="41,29,133" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Bivens Braid" label="Bivens Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="171,36,79" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Glen Springs Braid" label="Glen Springs Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="29,98,128" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Hawthorne Braid" label="Hawthorne Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="33,156,33" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Millhopper Braid" label="Millhopper Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="72,168,125" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="University Braid" label="University Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="143,84,168" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="Westside Braid" label="Westside Braid">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="173,84,40" jointype="round" transparency="0.5" overlap="true" type="solid" width="2" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER name="Existing_Bicycle_Facilities" type="featureclass" id="Draft_Green_Pathways.bicycle_facilities" visible="false">
+        <DATASET name="bicycle_facilities" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,168,132" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Existing_Non-Paved_Trails_(FGDL)" type="featureclass" id="Draft_Green_Pathways.trl03ea_nonpaved" visible="false">
+        <DATASET name="trl03ea" type="line" workspace="shp_ws-3" />
+
+        <SPATIALQUERY where="SURFACE &lt;&gt; 'PAVED'" />
+
+        <VALUEMAPRENDERER lookupfield="SURFACE">
+          <EXACT value="UNPAVED" label="UNPAVED">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="178,178,178" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+          </EXACT>
+
+          <EXACT value="WATER" label="WATER">
+            <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,77,168" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+          </EXACT>
+        </VALUEMAPRENDERER>
+      </LAYER>
+
+      <LAYER name="Existing_Paved_Trails_(FGDL)" type="featureclass" id="Draft_Green_Pathways.trl03ea_paved" visible="false">
+        <DATASET name="trl03ea" type="line" workspace="shp_ws-3" />
+
+        <SPATIALQUERY where="SURFACE = 'PAVED'" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,0,0" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Existing_Trails_(Public_Works)" type="featureclass" id="Draft_Green_Pathways.trails" visible="false">
+        <DATASET name="trails" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="230,152,0" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Connectors_Lines" type="featureclass" id="Draft_Green_Pathways.bikeway_connectors_line" visible="false">
+        <DATASET name="bikeway_connectors_line" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="255,85,0" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Connectors_Points" type="featureclass" id="Draft_Green_Pathways.bikeway_connectors" visible="false">
+        <DATASET name="bikeway_connectors" type="point" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <TRUETYPEMARKERSYMBOL character="35" angle="0" antialiasing="false" font="ESRI Default Marker" fontcolor="255,85,0" fontsize="20" fontstyle="regular" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+          </SIMPLERENDERER>
+
+          <SIMPLELABELRENDERER field="PROJ_NO" labelpriorities="1,2,1,2,0,0,0,2">
+            <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="15" fontcolor="255,85,0" />
+          </SIMPLELABELRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER name="Proposed_Bikeway_Projects" type="featureclass" id="Draft_Green_Pathways.bicycle_facilities_proposed" visible="false">
+        <DATASET name="bicycle_facilities_proposed" type="line" workspace="shp_ws-3" />
+
+        <SPATIALQUERY where="NOT (PROJ_NO = 8 OR PROJ_NO = 9 OR PROJ_NO = 15 OR PROJ_NO = 17)" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="0,112,255" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER name="Proposed_Sidewalk_Projects" type="featureclass" id="Draft_Green_Pathways.sidewalks_proposed" visible="false">
+        <DATASET name="sidewalks_proposed" type="line" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="168,56,0" jointype="round" transparency="1" overlap="true" type="solid" width="2" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Archer_Urban_Services_Boundary_(Draft)" visible="false" id="Draft_Green_Pathways.urban_services_archer">
+        <DATASET name="urban_services_archer" type="polygon" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="255,201,0" />
+        </SIMPLERENDERER>
+      </LAYER>
+-->
+
+      <LAYER type="featureclass" name="Zoning_Applications" id="Search_Layers.applications_zoning" visible="false">
+        <DATASET name="applications_zoning" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="102,102,204" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="5" overlap="true" filltransparency="0.0" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:16000">
+            <SIMPLELABELRENDERER field="APP_NO">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="12" fontcolor="0,0,0" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Zoning_Variances" id="Search_Layers.applications_petitions" visible="false">
+        <DATASET name="applications_petitions" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL antialiasing="false" boundary="true" boundarycaptype="butt" boundarycolor="255,51,0" boundaryjointype="round" boundarytransparency="1" boundarytype="solid" boundarywidth="5" overlap="true" filltransparency="0.0" />
+          </SIMPLERENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:16000">
+            <SIMPLELABELRENDERER field="PET_NO">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="12" fontcolor="0,0,0" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="Address_Points" id="Search_Layers.E911_address_pts" visible="false" maxscale="1:70000">
+        <DATASET name="E911_address_pts" type="point" workspace="shp_ws-3" />
+
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL transparency="1.0" color="255,102,0" width="12" />
+        </SIMPLERENDERER>
+      </LAYER>
+
+      <LAYER type="featureclass" name="STR_(Full_Sections)" id="Search_Layers.public_land_survey_system" visible="false">
+        <DATASET name="public_land_survey_system" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER>
+            <SIMPLERENDERER>
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="3" boundarycaptype="round" boundarycolor="153,51,0" />
+            </SIMPLERENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:60000">
+            <SIMPLELABELRENDERER field="TILE_NAME">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="15" fontcolor="153,51,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+      
+	  <!--
+      <LAYER type="featureclass" name="STR_(Quarter_Sections)" id="Search_Layers.public_land_survey_system" visible="false">
+        <DATASET name="public_land_survey_system" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER>
+            <SIMPLERENDERER>
+              <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="153,51,0" />
+            </SIMPLERENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:60000">
+            <SIMPLELABELRENDERER field="TILE_NAME">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="15" fontcolor="153,51,0" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+	  -->
+	
+      <LAYER type="featureclass" name="Tax_Parcels" id="Search_Layers.parcels" visible="true" maxscale="1:70000">
+        <DATASET name="parcels" type="polygon" workspace="shp_ws-3" />
+
+        <GROUPRENDERER>
+          <SCALEDEPENDENTRENDERER lower= "1:1" upper="1:20000">
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="0,0,0" />
+          </SIMPLERENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER lower="1:20000" upper="1:70000">
+          <SIMPLERENDERER>
+            <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="108,108,108" />
+          </SIMPLERENDERER>
+          </SCALEDEPENDENTRENDERER>
+
+          <SCALEDEPENDENTRENDERER upper="1:8000">
+            <SIMPLELABELRENDERER field="PLABEL">
+              <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+            </SIMPLELABELRENDERER>
+          </SCALEDEPENDENTRENDERER>
+        </GROUPRENDERER>
+      </LAYER>
+    </MAP>
+  </CONFIG>
+</ARCXML>

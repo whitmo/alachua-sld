@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ARCXML SYSTEM "http://www.nikos.alachua.fl.us/website/arcxml.dtd">
+<!-- 
+    NOTE: All Layer Names and IDs should use an underscore in place of spaces.
+    This allows the WFS to work properly, as it fails if there is a space
+    in either the Name or ID. The GeoGM JavaScript aimsLayers, line 185
+    replaces the underscores with spaces when the ArcIMS service loads.
+    This creates pretty looking Names and IDs when using GeoGM.
+    (tim clark, feb 2, 2006)
+    
+    The geogm_feature axl is the same as the geogm image axl, except that it 
+    does not include the imagery and parcels.
+-->
+<ARCXML version="1.1">
+   <CONFIG>
+      <ENVIRONMENT>
+         <LOCALE country="US" language="en" variant="" />
+
+         <UIFONT color="0,0,0" name="SansSerif" size="12" style="regular" />
+
+         <SCREEN dpi="96" />
+      </ENVIRONMENT>
+
+      <MAP>
+         <PROPERTIES>
+            <ENVELOPE name="Initial_Extent" minx="2530698.475372441" miny="156634.0" maxx="2748596.5494250064" maxy="349858.0" />
+
+            <ENVELOPE name="Extent_Limit" minx="2530698.475372441" miny="156634.0" maxx="2748596.5494250064" maxy="349858.0" />
+
+            <FEATURECOORDSYS id="2238" />
+
+            <FILTERCOORDSYS id="2238" />
+
+            <MAPUNITS units="feet" />
+         </PROPERTIES>
+
+         <WORKSPACES>
+            <IMAGEWORKSPACE directory="C:\ArcIMS\Data\GeoGMData\imagery" name="jai_ws-0" />
+
+            <IMAGEWORKSPACE directory="E:\GeoGMData\DOQQ" name="jai_ws-2" />
+
+            <SHAPEWORKSPACE name="shp_ws-3" directory="C:\ArcIMS\Data\GeoGMData" />
+
+            <SHAPEWORKSPACE name="shp_ws-0" directory="C:\ArcIMS\Data\PermitData" />
+            
+            <SDEWORKSPACE name="sde_ws-0" server="oracle_codes" instance="5151" user="gm_gis" password="dogmin210!" database="" encrypted="false"/>
+         </WORKSPACES>
+
+         <LAYER type="image" name="1996_Ortho_Aerial" visible="false" id="Imagery.AC_Aerial_1996">
+            <DATASET name="AC_Aerial_1996.sid" type="image" workspace="jai_ws-0" />
+         </LAYER>
+
+         <LAYER type="image" name="2000_Ortho_Aerial_(1_ft)" visible="false" id="Imagery.Color2000">
+            <DATASET name="ImgCat_Color2000.dbf" type="image" workspace="jai_ws-0" />
+
+            <COORDSYS id="2238" />
+         </LAYER>
+
+         <LAYER type="image" name="2005_Ortho_Aerial_(1_ft)" visible="false" id="Imagery.Color2004">
+            <DATASET name="ACPA_NC_1ft.sid" type="image" workspace="jai_ws-0" />
+
+            <COORDSYS id="2238" />
+         </LAYER>
+
+         <LAYER type="featureclass" name="2007_Oblique_Aerials_(5_in)" id="Imagery.pictometry_extent" visible="false">
+            <DATASET name="oblique_imagery_extent" type="polygon" workspace="shp_ws-3" />
+
+            <SIMPLERENDERER>
+               <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.7" filltype="diagcross" fillcolor="255,0,255" boundarycaptype="round" boundarycolor="255,0,255" />
+            </SIMPLERENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1982" id="Building_Permits_(1982-1989).parcels_1982" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1982.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1982" where="PARCELS_PERMITS_1982.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="205,170,102" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1982.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1983" id="Building_Permits_(1982-1989).parcels_1983" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1983.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1983" where="PARCELS_PERMITS_1983.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="137,205,102" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1983.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1984" id="Building_Permits_(1982-1989).parcels_1984" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1984.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1984" where="PARCELS_PERMITS_1984.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="102,205,171" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1984.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1985" id="Building_Permits_(1982-1989).parcels_1985" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1985.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1985" where="PARCELS_PERMITS_1985.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="122,182,245" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1985.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1986" id="Building_Permits_(1982-1989).parcels_1986" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1986.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1986" where="PARCELS_PERMITS_1986.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="122,142,245" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1986.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1987" id="Building_Permits_(1982-1989).parcels_1987" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1987.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1987" where="PARCELS_PERMITS_1987.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="255,115,223" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1987.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1988" id="Building_Permits_(1982-1989).parcels_1988" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1988.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1988" where="PARCELS_PERMITS_1988.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="223,115,255" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1988.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1989" id="Building_Permits_(1982-1989).parcels_1989" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1989.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1989" where="PARCELS_PERMITS_1989.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="137,90,68" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1989.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1990" id="Building_Permits_(1990-1999).parcels_1990" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1990.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1990" where="PARCELS_PERMITS_1990.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="137,137,68" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1990.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1991" id="Building_Permits_(1990-1999).parcels_1991" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1991.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1991" where="PARCELS_PERMITS_1991.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="92,137,68" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1991.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1992" id="Building_Permits_(1990-1999).parcels_1992" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1992.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1992" where="PARCELS_PERMITS_1992.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="68,137,112" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1992.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1993" id="Building_Permits_(1990-1999).parcels_1993" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1993.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1993" where="PARCELS_PERMITS_1993.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="68,101,137" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1993.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1994" id="Building_Permits_(1990-1999).parcels_1994" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1994.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1994" where="PARCELS_PERMITS_1994.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="68,79,137" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1994.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1995" id="Building_Permits_(1990-1999).parcels_1995" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1995.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1995" where="PARCELS_PERMITS_1995.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="112,68,137" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1995.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1996" id="Building_Permits_(1990-1999).parcels_1996" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1996.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1996" where="PARCELS_PERMITS_1996.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="137,68,101" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1996.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1997" id="Building_Permits_(1990-1999).parcels_1997" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1997.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1997" where="PARCELS_PERMITS_1997.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="230,0,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1997.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1998" id="Building_Permits_(1990-1999).parcels_1998" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1998.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1998" where="PARCELS_PERMITS_1998.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="168,56,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1998.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_1999" id="Building_Permits_(1990-1999).parcels_1999" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_1999.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_1999" where="PARCELS_PERMITS_1999.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="230,152,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_1999.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2000" id="Building_Permits_(2000-2008).parcels_2000" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2000.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2000" where="PARCELS_PERMITS_2000.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="168,168,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2000.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2001" id="Building_Permits_(2000-2008).parcels_2001" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2001.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2001" where="PARCELS_PERMITS_2001.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="112,168,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2001.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2002" id="Building_Permits_(2000-2008).parcels_2002" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2002.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2002" where="PARCELS_PERMITS_2002.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="56,168,0" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2002.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2003" id="Building_Permits_(2000-2008).parcels_2003" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2003.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2003" where="PARCELS_PERMITS_2003.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="0,230,169" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2003.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2004" id="Building_Permits_(2000-2008).parcels_2004" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2004.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2004" where="PARCELS_PERMITS_2004.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="0,169,230" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2004.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2005" id="Building_Permits_(2000-2008).parcels_2005" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2005.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2005" where="PARCELS_PERMITS_2005.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="0,92,230" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2005.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2006" id="Building_Permits_(2000-2008).parcels_2006" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2006.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2006" where="PARCELS_PERMITS_2006.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="169,0,230" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2006.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2007" id="Building_Permits_(2000-2008).parcels_2007" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2007.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2007" where="PARCELS_PERMITS_2007.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="230,0,169" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2007.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2008" id="Building_Permits_(2000-2008).parcels_2008" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2008.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2008" where="PARCELS_PERMITS_2008.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="230,0,169" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2008.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+         
+         <LAYER type="featureclass" name="County_Boundary" visible="true" id="Other_Layers.county">
+            <DATASET name="county" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="4" boundarycaptype="round" boundarycolor="255,255,255" />
+               </SIMPLERENDERER>
+
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL filltransparency="0.0" boundarytransparency="1.0" boundarywidth="2" boundarycolor="128,128,128" />
+               </SIMPLERENDERER>
+
+               <VALUEMAPLABELRENDERER lookupfield="LABEL" labelfield="LABEL">
+                  <EXACT value="ALACHUA COUNTY" label="">
+                     <TEXTSYMBOL fontcolor="0,0,0" fontsize="0" font="Arial" />
+                  </EXACT>
+
+                  <OTHER>
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="12" fontcolor="190,190,190" />
+                  </OTHER>
+               </VALUEMAPLABELRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Municipalities" visible="false" id="Other_Layers.municipalities">
+            <DATASET name="municipalities" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="255,204,153" boundarywidth="1" boundarycaptype="round" boundarycolor="205,175,125" />
+               </SIMPLERENDERER>
+
+               <SIMPLELABELRENDERER field="NAME">
+                  <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="10" fontcolor="255,0,0" glowing="255,255,255" />
+               </SIMPLELABELRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building Inspection Zones" visible="true" id="Other_Layers.building_inspection_zones">
+            <DATASET name="building_inspection_zones" type="polygon" workspace="shp_ws-0" />
+
+            <GROUPRENDERER>
+               <VALUEMAPRENDERER lookupfield="ZONE_NO">
+                  <EXACT value="1" label="1">
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="0,169,230" boundarycolor="110,110,110" />
+                  </EXACT>
+
+                  <EXACT value="2" label="2">
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="255,85,0" boundarycolor="110,110,110" />
+                  </EXACT>
+
+                  <EXACT value="3" label="3">
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="76,230,0" boundarycolor="110,110,110" />
+                  </EXACT>
+
+                  <EXACT value="4" label="4">
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.5" fillcolor="255,255,0" boundarycolor="110,110,110" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <SCALEDEPENDENTRENDERER>
+                  <SIMPLELABELRENDERER field="ZONE_NO">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="20" fontcolor="0,0,255" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER name="Impact_Fee_Districts" id="Other_Layers.impact_fee_districts" visible="false" type="featureclass">
+            <DATASET name="impact_fee_districts" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <VALUEMAPRENDERER lookupfield="DESCRIP">
+                  <EXACT value="District  1 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="0,0,0" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="255,170,0" />
+                  </EXACT>
+
+				  <EXACT value="District  1 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="0,0,0" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="230,153,0" />
+                  </EXACT>
+				  
+                  <EXACT value="District  2 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="76,230,0" />
+                  </EXACT>
+				  
+				  <EXACT value="District  2 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="68,204,0" />
+                  </EXACT>
+
+                  <EXACT value="District  3 - Rural">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="0,197,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  3 - Urban">
+                     <SIMPLEPOLYGONSYMBOL boundarycolor="110,110,110" boundarycaptype="butt" boundaryjointype="round" boundarytransparency="0" boundarywidth="0.4" boundarytype="solid" filltype="solid" filltransparency="1.0" fillcolor="0,176,230" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <VALUEMAPLABELRENDERER lookupfield="DESCRIP" labelfield="DESCRIP" linelabelposition="placeontop" howmanylabels="one_label_per_shape">
+                  <EXACT value="District  1 - Rural" label="1 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  1 - Urban" label="1 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+
+                  <EXACT value="District  2 - Rural" label="2 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+
+				  <EXACT value="District  2 - Urban" label="2 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+                  <EXACT value="District  3 - Rural" label="3 - Rural">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>
+				  
+				  <EXACT value="District  3 - Urban" label="3 - Urban">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="16" fontcolor="0,0,0" glowing="255,255,255" />
+                  </EXACT>				  
+               </VALUEMAPLABELRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER name="Impact_Fees_(2005_to_Present)" type="featureclass" id="Other_Layers.impact_fees" visible="false">
+				<DATASET name="GM_GIS.VW_IMPACT_FEES_ADDRESSES" type="point" workspace="sde_ws-0" />
+				<SIMPLERENDERER>
+					<SIMPLEMARKERSYMBOL color="0,0,255" outline="0,0,0" transparency="1" type="circle" width="5"/>
+				</SIMPLERENDERER>
+			</LAYER>
+			
+	  <LAYER name="Certificates_of_Occupancy_(1994-2009)" id="Other_Layers.certificates_of_occupancy_pts" visible="false" type="featureclass">
+        <DATASET name="certificates_of_occupancy_pts" type="point" workspace="shp_ws-0" />
+        <SIMPLERENDERER>
+          <SIMPLEMARKERSYMBOL antialiasing="true" color="0,102,255" overlap="true" transparency="1.0" usecentroid="true" width="6" type="circle" />
+        </SIMPLERENDERER>
+      </LAYER>
+      
+         <LAYER type="featureclass" name="Urban_Cluster" visible="false" id="Other_Layers.urban_cluster">
+            <DATASET name="urban_cluster" type="polygon" workspace="shp_ws-3" />
+
+            <SIMPLERENDERER>
+               <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="0,0,255" />
+            </SIMPLERENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="All_Roads" visible="false" id="Other_Layers.e911_roads_merge">
+            <DATASET name="e911_roads_merge" type="line" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SCALEDEPENDENTRENDERER lower="1:1" upper="1:70000">
+                  <SIMPLERENDERER>
+                     <SIMPLELINESYMBOL width="3" captype="round" color="160,160,160" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER lower="1:1" upper="1:70000">
+                  <SIMPLERENDERER>
+                     <SIMPLELINESYMBOL width="1" captype="round" color="208,208,208" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER lower="1:70001" upper="1:9223372036854775807">
+                  <SIMPLERENDERER>
+                     <SIMPLELINESYMBOL width="1" captype="round" color="160,160,160" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Major_Roads" visible="true" id="Other_Layers.mjrds01">
+            <DATASET name="majrds01" type="line" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+                  <VALUEMAPRENDERER lookupfield="JURIS">
+                     <EXACT value="County" label="Roads within County">
+                        <SIMPLELINESYMBOL width="4" captype="round" color="128,128,128" />
+                     </EXACT>
+                  </VALUEMAPRENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER lower="1:1" upper="1:100000">
+                  <VALUEMAPRENDERER lookupfield="JURIS">
+                     <EXACT value="County" label="Roads within County">
+                        <SIMPLELINESYMBOL width="2" captype="round" color="255,150,150" />
+                     </EXACT>
+                  </VALUEMAPRENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER lower="1:100000" upper="1:9223372036854775807">
+                  <VALUEMAPRENDERER lookupfield="JURIS">
+                     <EXACT value="County" label="Roads within County">
+                        <SIMPLELINESYMBOL width="2" captype="round" color="255,100,100" />
+                     </EXACT>
+                  </VALUEMAPRENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <VALUEMAPRENDERER lookupfield="JURIS">
+                  <EXACT value="Non-County" label="Roads out of County">
+                     <SIMPLELINESYMBOL antialiasing="false" captype="butt" color="255,190,190" width="1" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <VALUEMAPRENDERER lookupfield="CLASS">
+                  <EXACT value="Interstate" label="Interstate">
+                     <SIMPLELINESYMBOL width="5" captype="round" color="128,128,128" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <VALUEMAPRENDERER lookupfield="CLASS">
+                  <EXACT value="Interstate" label="PLABEL">
+                     <SIMPLELINESYMBOL width="3" captype="round" color="255,170,0" />
+                  </EXACT>
+               </VALUEMAPRENDERER>
+
+               <VALUEMAPLABELRENDERER lookupfield="CLASS" labelfield="PLABEL" linelabelposition="placeontop">
+                  <EXACT value="Interstate" label="I">
+                     <SHIELDSYMBOL font="Arial" fontstyle="regular" fontsize="10" fontcolor="255,255,255" type="interstate" minsize="2" />
+                  </EXACT>
+               </VALUEMAPLABELRENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:100000">
+                  <SIMPLELABELRENDERER field="LOCALNAME" linelabelposition="placeabove" labelbufferratio="0.5">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontsize="11" fontcolor="220,0,0" outline="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="STR" id="Search_Layers.public_land_survey_system" visible="false">
+            <DATASET name="public_land_survey_system" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SCALEDEPENDENTRENDERER>
+                  <SIMPLERENDERER>
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarywidth="2" boundarycaptype="round" boundarycolor="153,51,0" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:60000">
+                  <SIMPLELABELRENDERER field="TILE_NAME">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="regular" fontsize="15" fontcolor="153,51,0" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Address_Points" id="Search_Layers.E911_address_pts" visible="false" maxscale="1:70000">
+            <DATASET name="E911_address_pts" type="point" workspace="shp_ws-3" />
+
+            <SIMPLERENDERER>
+               <SIMPLEMARKERSYMBOL transparency="1.0" color="255,102,0" width="8" />
+            </SIMPLERENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Building_Permits_2009" id="Search_Layers.parcels_2009" visible="false">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_PERMITS_2009.FOLIO_NBR],Type=[scan]" jointables="PARCELS_PERMITS_2009" where="PARCELS_PERMITS_2009.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="230,0,169" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:30000">
+                  <SIMPLELABELRENDERER field="PARCELS_PERMITS_2009.PERMIT_NBR">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Tax_Parcels" id="Search_Layers.parcels" visible="true" maxscale="1:70000">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-3" />
+
+            <GROUPRENDERER>
+               <SCALEDEPENDENTRENDERER lower="1:1" upper="1:20000">
+                  <SIMPLERENDERER>
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="0,0,0" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER lower="1:20000" upper="1:70000">
+                  <SIMPLERENDERER>
+                     <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="108,108,108" />
+                  </SIMPLERENDERER>
+               </SCALEDEPENDENTRENDERER>
+
+               <SCALEDEPENDENTRENDERER upper="1:8000">
+                  <SIMPLELABELRENDERER field="PLABEL">
+                     <TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+                  </SIMPLELABELRENDERER>
+               </SCALEDEPENDENTRENDERER>
+            </GROUPRENDERER>
+         </LAYER>
+
+         <LAYER type="featureclass" name="Inspection_Status_(Today)" id="Search_Layers.todays_inspections" visible="false">
+            <DATASET name="GM_GIS.VW_PERM_INSP_ADDRESSES_TODAY" type="point" workspace="sde_ws-0" />
+            <GROUPRENDERER>
+	            <VALUEMAPRENDERER lookupfield="LABEL_KEY_1">
+					<EXACT value="BLD072-COMPLETED" label="JIM - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="255,0,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD072-PENDING" label="JIM - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="255,0,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD092-COMPLETED" label="MIKE - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,92,240" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD092-PENDING" label="MIKE - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,92,240" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD142-COMPLETED" label="WILL - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="38,115,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD142-PENDING" label="WILL - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="38,115,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD152-COMPLETED" label="JUDY - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="240,0,169" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD152-PENDING" label="JUDY - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="240,0,169" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD232-COMPLETED" label="JOHN - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="137,90,68" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD232-PENDING" label="JOHN - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="137,90,68" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD322-COMPLETED" label="MICHAEL - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,169,240" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD322-PENDING" label="MICHAEL - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="0,169,240" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD362-COMPLETED" label="MATTHEW - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="240,152,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="BLD362-PENDING" label="MATTHEW - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="240,152,0" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="OTHER-COMPLETED" label="OTHER - COMPLETED">
+						<TRUETYPEMARKERSYMBOL character="95" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="140,140,140" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+					<EXACT value="OTHER-PENDING" label="OTHER - PENDING">
+						<TRUETYPEMARKERSYMBOL character="94" angle="0" antialiasing="true" font="ESRI Default Marker" fontcolor="140,140,140" fontsize="40" fontstyle="regular" glowing="255,255,255" overlap="true" rotatemethod="mod_arithmetic" transparency="1" usecentroid="true" />
+					</EXACT>
+				</VALUEMAPRENDERER>
+				
+				 <VALUEMAPLABELRENDERER lookupfield="LABEL_KEY_1" labelfield="RESULT_CODE" labelpriorities="LE_PlaceOnTopHorizontal">
+	     			<EXACT value="BLD072-COMPLETED" label="JIM - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="255,0,0" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD092-COMPLETED" label="MIKE - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="0,92,240" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD142-COMPLETED" label="WILL - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="38,115,0" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD152-COMPLETED" label="JUDY - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="240,0,169" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD232-COMPLETED" label="JOHN - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="137,90,68" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD322-COMPLETED" label="MICHAEL - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="0,169,240" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="BLD362-COMPLETED" label="MATTHEW - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="240,152,0" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+					<EXACT value="OTHER-COMPLETED" label="OTHER - COMPLETED">
+						<TEXTSYMBOL antialiasing="true" font="Arial" fontstyle="bold" fontcolor="140,140,140" glowing="255,255,255" fontsize="12"/>
+					</EXACT>
+			     </VALUEMAPLABELRENDERER>
+			 
+			 </GROUPRENDERER>
+         </LAYER>
+         
+         <LAYER type="featureclass" name="Building_Inspections_(Today)" id="Search_Layers.parcels_inspections_today" visible="true">
+            <DATASET name="parcels" type="polygon" workspace="shp_ws-0" />
+
+            <SPATIALQUERY joinexpression="To=[parcels.PIN],From=[PARCELS_INSPECTIONS_TODAY.FOLIO_NBR],Type=[scan]" jointables="PARCELS_INSPECTIONS_TODAY" where="PARCELS_INSPECTIONS_TODAY.PERMIT_NBR &lt;&gt; 0" subfields="#ALL#" />
+
+            <GROUPRENDERER>
+               <SIMPLERENDERER>
+                  <SIMPLEPOLYGONSYMBOL boundarytransparency="1.0" filltransparency="0.0" boundarycaptype="round" boundarycolor="255,0,255" boundarywidth="2" />
+               </SIMPLERENDERER>
+
+<!--<SCALEDEPENDENTRENDERER upper="1:100000">-->
+               <SIMPLELABELRENDERER field="PARCELS_INSPECTIONS_TODAY.PERMIT_LBL" labelbufferratio="-1.0">
+                  <TEXTSYMBOL transparency="0.8" antialiasing="true" font="Arial" fontstyle="bold" fontsize="10" glowing="255,255,255" />
+               </SIMPLELABELRENDERER>
+
+<!--</SCALEDEPENDENTRENDERER>-->
+            </GROUPRENDERER>
+         </LAYER>
+      </MAP>
+   </CONFIG>
+</ARCXML>
+

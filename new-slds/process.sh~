@@ -1,0 +1,27 @@
+ cat layer_list.txt | 
+
+ (    
+     while read filename; 
+     do echo $filename; 
+     touch sld/$filename.sld 
+     echo " 
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor
+  xmlns="http://www.opengis.net/sld"
+  xmlns:ogc="http://www.opengis.net/ogc"
+  version="1.0.0">
+   <UserLayer>
+      <UserStyle>
+         <FeatureTypeStyle>
+            <Name>"alachua:$filename"</Name>
+            <Title>A simple red point</Title>
+            <Abstract>A simple way to get started with styling</Abstract>
+            <FeatureTypeName>namespace:featuretype</FeatureTypeName>
+            <Rule>
+            </Rule>
+         </FeatureTypeStyle>
+      </UserStyle>
+   </UserLayer>
+</StyledLayerDescriptor>
+        " > sld/$filename.sld 
+     done  )
